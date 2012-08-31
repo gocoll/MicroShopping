@@ -132,21 +132,21 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <None Include="Scripts\jquery-1.6.2-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.2.js" />
-    <Content Include="Scripts\jquery-1.6.2.min.js">
+    <None Include="Public\assets\javascripts\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Public\assets\javascripts\jquery-1.6.2.js" />
+    <Content Include="Public\assets\javascripts\jquery-1.6.2.min.js">
       <DependentUpon>jquery-1.6.2.js</DependentUpon>
     </Content>
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.min.js">
+    <None Include="Public\assets\javascripts\jquery.validate-vsdoc.js" />
+    <Content Include="Public\assets\javascripts\jquery-ui-1.8.11.js" />
+    <Content Include="Public\assets\javascripts\jquery-ui-1.8.11.min.js">
       <DependentUpon>jquery-ui-1.8.11.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js">
+    <Content Include="Public\assets\javascripts\jquery.validate.js" />
+    <Content Include="Public\assets\javascripts\jquery.validate.min.js">
       <DependentUpon>jquery.validate.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Public\assets\javascripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -155,16 +155,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\MicrosoftAjax.js" />
-    <Content Include="Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Public\assets\javascripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Public\assets\javascripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Public\assets\javascripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Public\assets\javascripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftAjax.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftAjax.debug.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftMvcAjax.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftMvcValidation.js" />
+    <Content Include="Public\assets\javascripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
@@ -179,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\assets\images\" />
+    <Folder Include="Public\assets\stylesheets\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
