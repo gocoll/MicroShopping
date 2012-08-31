@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShopping.WebUI", "MicroShopping.WebUI\MicroShopping.WebUI.csproj", "{C1460A50-ED9A-43EE-AF79-0281124683D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShopping.Domain", "MicroShopping.Domain\MicroShopping.Domain.csproj", "{01E71B14-CDBB-444A-9811-3362E7903F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShopping.Tests", "MicroShopping.Tests\MicroShopping.Tests.csproj", "{2DE1FCBB-297F-452F-B227-8C1341D6D558}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01E71B14-CDBB-444A-9811-3362E7903F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E71B14-CDBB-444A-9811-3362E7903F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E71B14-CDBB-444A-9811-3362E7903F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E71B14-CDBB-444A-9811-3362E7903F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE1FCBB-297F-452F-B227-8C1341D6D558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE1FCBB-297F-452F-B227-8C1341D6D558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE1FCBB-297F-452F-B227-8C1341D6D558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE1FCBB-297F-452F-B227-8C1341D6D558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1460A50-ED9A-43EE-AF79-0281124683D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1460A50-ED9A-43EE-AF79-0281124683D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1460A50-ED9A-43EE-AF79-0281124683D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1460A50-ED9A-43EE-AF79-0281124683D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
