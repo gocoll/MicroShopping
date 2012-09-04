@@ -167,10 +167,11 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Public\assets\stylesheets\main.less" />
+    <None Include="Public\assets\stylesheets\globals\main.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Public\assets\stylesheets\bootstrap.css" />
+    <Content Include="Public\assets\javascripts\microshopping.js" />
+    <Content Include="Public\assets\stylesheets\plugins\bootstrap.css" />
     <Content Include="Global.asax" />
     <None Include="Public\assets\javascripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Public\assets\javascripts\jquery-1.6.2.js" />
@@ -223,6 +224,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Public\assets\images\" />
+    <Folder Include="Public\assets\stylesheets\components\" />
+    <Folder Include="Public\assets\stylesheets\sections\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
