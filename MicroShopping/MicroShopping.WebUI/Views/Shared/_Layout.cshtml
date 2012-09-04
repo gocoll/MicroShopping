@@ -11,37 +11,50 @@
     <title>@ViewBag.Title</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+    <link href='http://fonts.googleapis.com/css?family=Life+Savers' rel='stylesheet' type='text/css'>
 
     @Bundles.RenderStylesheets()
 
     @Bundles.RenderScripts()
 </head>
 <body>
-    <div id="header">
-        <div class="logo-wrap">
-            <a href="@Url.Action("Index", "Home")">
-                <img src="@Url.Content("~/Public/assets/images/logo.png")" alt="Dotacamp" />
-            </a>
-        </div>
-
-        <ul class="navigation">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">HEROES</a></li>
-            <li><a href="#">ITEMS</a></li>
-            <li><a href="#">STREAMS</a></li>
-            <li><a href="#">FORUMS</a></li>
-        </ul>        
+    <div id="rainbow">
+        <div class="darkgreen"></div>
+        <div class="lime"></div>
+        <div class="white"></div>
+        <div class="blue"></div>
+        <div class="torquise"></div>
+        <div class="darkgreen"></div>
+        <div class="lime"></div>
+        <div class="white"></div>
+        <div class="blue"></div>
+        <div class="torquise"></div>
     </div>
-    <div class="breaker"></div>
+
+    <div id="wrapper">
+        <div id="header">
+            <h1>
+                <a href="@Url.Action("Home", "Index")">MicroShopping</a>
+            </h1>
+
+            <ul class="navigation">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Crear Cuenta</a></li>
+                <li><a href="#">Remates</a></li>
+                <li><a href="#">Remates Finalizados</a></li>
+            </ul>
+        </div>
     
 
-    <div id="content-wrap">
-        <div class="content">
-            @RenderBody()
+        <div id="content-wrap">
+            <div class="content">
+                @RenderBody()
+            </div>
+            <div class="sidebar">
+                <p>This some text.</p>
+            </div>
         </div>
-        <div class="sidebar">
-            <p>This some text.</p>
-        </div>
-    </div>    
+    </div>
+        
 </body>
 </html>
