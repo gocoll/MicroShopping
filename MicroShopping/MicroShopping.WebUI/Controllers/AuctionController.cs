@@ -6,13 +6,16 @@ using System.Web.Mvc;
 
 namespace MicroShopping.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class AuctionController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            return PartialView();
+        }
 
-            return View();
+        public ActionResult Finished()
+        {
+            return PartialView();
         }
     }
 }

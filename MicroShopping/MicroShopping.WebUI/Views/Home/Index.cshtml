@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "MicroShopping";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+@{ Html.RenderAction("Index", "Auction"); }
+
+@{ Html.RenderAction("Finished", "Auction"); }

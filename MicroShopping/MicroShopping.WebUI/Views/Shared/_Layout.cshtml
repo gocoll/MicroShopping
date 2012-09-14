@@ -18,43 +18,32 @@
     @Bundles.RenderScripts()
 </head>
 <body>
-    <div id="rainbow">
-        <div class="darkgreen"></div>
-        <div class="lime"></div>
-        <div class="white"></div>
-        <div class="blue"></div>
-        <div class="torquise"></div>
-        <div class="darkgreen"></div>
-        <div class="lime"></div>
-        <div class="white"></div>
-        <div class="blue"></div>
-        <div class="torquise"></div>
-    </div>
-
     <div id="wrapper">
-        <div id="header">
-            <h1>
-                <a href="@Url.Action("Home", "Index")">MicroShopping</a>
-            </h1>
+        <div id="innerwrapper">
+            <div id="contentwrapper">
 
-            <ul class="navigation">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Crear Cuenta</a></li>
-                <li><a href="#">Remates</a></li>
-                <li><a href="#">Remates Finalizados</a></li>
-            </ul>
-        </div>
-    
 
-        <div id="content-wrap">
-            <div class="content">
-                @RenderBody()
-            </div>
-            <div class="sidebar">
-                <p>This some text.</p>
+                <div id="header">
+                    <h1>
+                        <a href="@Url.Action("Index", "Home")">MicroShopping</a>
+                    </h1>
+
+                    <p>Donde comprar es mas barato!</p>
+
+                    @Html.Partial("_Navigation")
+                </div>
+
+                <div id="content">
+                    @RenderBody()
+                </div>
+
+
             </div>
         </div>
     </div>
-        
+    <div id="footer">
+        <p>Microshopping Platform &copy; 2012 Sergio Tapia Gutierrez</p>
+        <p>Download the full source code and documentation at the official <a href="https://github.com/sergiotapia/MicroShopping">Github Page</a>.</p>
+    </div>
 </body>
 </html>

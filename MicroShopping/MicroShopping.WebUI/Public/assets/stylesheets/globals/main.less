@@ -4,81 +4,69 @@
 
 body {
 	margin: 0;
+	background-color: #96ca2d;
+	color: #575757;
 }
 
 a {
-	color:#4BB5C1;
+	color: #4bb5c1;
 }
+
 
 a:hover {
-	color:#4BB5C1;
-}
-
-#rainbow {
-	width:100%;
-	overflow:hidden;
-	
-	.darkgreen {
-		background-color: #96CA2D;
-		height:7px;
-		width:10%;
-		float:left;
-	}
-
-	.lime {
-		background-color: #B5E655;
-		height:7px;
-		width:10%;
-		float:left;
-	}
-
-	.white {
-		background-color: #EDF7F2;
-		height:7px;
-		width:10%;
-		float:left;
-	}
-
-	.blue {
-		background-color: #4BB5C1;
-		height:7px;
-		width:10%;
-		float:left;
-	}
-
-	.torquise {
-		background-color: #7FC6BC;
-		height:7px;
-		width:10%;
-		float:left;
-	}
+	color: #3E939C;
 }
 
 #wrapper {
 	width:1200px;
 	margin:0 auto;
-	background-color: #fff;
+}
+
+#innerwrapper {
+	width:1100px;
+	margin: 0 auto;
+	background-color: #b5e655;
+}
+
+#contentwrapper {
+	width: 1090px;
+	margin: 0 auto;
+	background-color: #EDF7F2;
+	border-bottom: 5px solid #B5E655;
 }
 
 #header {
-	border-bottom:1px solid #B5E655;
 	overflow:hidden;
-	margin-top:50px;
 
 	h1 {
 		font-family: 'Life Savers', cursive;
 		float: left;
 		margin: 0;
+		margin-left: 25px;
+		margin-top: 25px;
+		margin-bottom: 30px;
 
 		a:hover {
 			text-decoration: none;
 		}
 	}
 
-	.navigation {
+	p {
 		float: left;
+		margin-top: 42px;
+		margin-left: 21px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	.navigation {
+		clear: left;
 		list-style-type: none;
-		margin-top: 20px;
+		overflow: hidden;
+		margin: 0px auto 30px auto;
+		width: 688px;
+		border-bottom: 1px solid #7FC6BC;
+		padding-bottom: 10px;
 
 		li {
 			float: left;
@@ -88,5 +76,18 @@ a:hover {
 				font-size: 16px;
 			}
 		}
+	}
+}
+
+#footer {
+	width: 1149px;
+	margin: 0 auto;
+	margin-top: 0px;
+	background-color: #B5E655;
+	padding: 10px;
+	color: #575757;
+
+	p {
+		text-align:center;
 	}
 }
