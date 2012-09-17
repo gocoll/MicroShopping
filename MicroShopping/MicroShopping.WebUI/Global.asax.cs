@@ -24,6 +24,12 @@ namespace MicroShopping.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "ProfilePage",
+                "Account/Profile/{nickname}",
+                new { controller = "Account", action = "Profile" }
+            );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
@@ -34,6 +40,7 @@ namespace MicroShopping.WebUI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            AutoMapperWebConfiguration.Configure();
 
             // Use LocalDB for Entity Framework by default
             Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");

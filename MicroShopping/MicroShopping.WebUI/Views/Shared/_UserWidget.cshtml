@@ -1,0 +1,22 @@
+﻿<div id="user-widget">
+    @if (User.Identity.IsAuthenticated)
+    {
+        MicroShopping.Domain.Concrete.EfUserRepository userRepository = new MicroShopping.Domain.Concrete.EfUserRepository();
+        var user = userRepository.FindUserByEmail(User.Identity.Name);
+        
+        <a class="avatar" href="@Url.Action("Profile", "Account", new { nickname = user.Nickname })">
+            <img src="http://www.placehold.it/48x48" alt="@user.Nickname" />
+        </a>
+        <div class="info">
+            <p class="username"><a href="@Url.Action("Profile", "Account", new { nickname = user.Nickname })">@user.Nickname</a></p>
+            <p class="credit"><span>@user.LanceCreditBalance</span> Lances <a href="#">(Comprar Mas!)</a></p>
+        </div>
+
+        <a class="logout" href="@Url.Action("LogOff", "Account")">[Cerrar Sesion]</a>
+                            
+    } else
+    {
+        <a href="@Url.Action("Login", "Account")" class="btn btn-info">Iniciar Sesion</a>
+        <a href="@Url.Action("Register", "Account")" class="btn btn-success">Registrarse!</a>
+    }
+</div>

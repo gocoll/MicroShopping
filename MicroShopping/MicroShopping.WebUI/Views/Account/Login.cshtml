@@ -1,0 +1,28 @@
+﻿@model MicroShopping.WebUI.Models.LoginModel
+
+@{
+    ViewBag.Title = "Ingresar a tu cuenta. | MicroShopping";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+{   
+    @Html.ValidationSummary()
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Email)
+        <div class="controls">
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Password)
+        <div class="controls">
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Ingresar a tu cuenta" />
+}
