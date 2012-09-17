@@ -168,6 +168,7 @@
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,9 +181,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Public\assets\stylesheets\components\auction.less" />
     <None Include="Public\assets\stylesheets\components\form.less" />
+    <None Include="Public\assets\stylesheets\components\lanceshop.less" />
     <None Include="Public\assets\stylesheets\components\profile.less" />
     <None Include="Public\assets\stylesheets\globals\main.less" />
     <Content Include="LICENSE.txt" />
+    <Content Include="Public\assets\images\bar.png" />
+    <Content Include="Public\assets\images\chest.png" />
+    <Content Include="Public\assets\images\coin.png" />
     <Content Include="Public\assets\user-content\avatars\empty.txt" />
     <Content Include="Views\Home\Navigation.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
@@ -196,6 +201,7 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\EditProfile.cshtml" />
     <Content Include="Views\Account\ChangeAvatar.cshtml" />
+    <Content Include="Views\Shop\BuyLances.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
@@ -241,7 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Public\assets\images\" />
     <Folder Include="Public\assets\stylesheets\sections\" />
   </ItemGroup>
   <ItemGroup>
