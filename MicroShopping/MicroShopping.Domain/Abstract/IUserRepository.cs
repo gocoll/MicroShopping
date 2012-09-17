@@ -11,6 +11,7 @@ namespace MicroShopping.Domain.Abstract
         IQueryable<User> FindAllUsers();
         User FindUserByEmail(string email);
         User FindUserById(int userId);
+        User FindUserByNickname(string nickname);
         UserCreationResults CreateUser(User user);
         bool ValidateCredentials(string email, string password);
         void SaveChanges();

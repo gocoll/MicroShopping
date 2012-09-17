@@ -24,6 +24,8 @@ namespace MicroShopping.WebUI
             {
                 Mapper.CreateMap<User, UserModel>();
                 Mapper.CreateMap<UserModel, User>();
+                Mapper.CreateMap<User, ProfileModel>();
+                Mapper.CreateMap<ProfileModel, User>();
             }
         }
     }

@@ -25,6 +25,100 @@ namespace MicroShopping.WebUI.Controllers
             _userRepository = userRepository;
         }
 
+        public ActionResult EditProfile()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = _userRepository.FindUserByEmail(User.Identity.Name);
+                if (user == null)
+                {
+                    FormsAuthentication.SignOut();
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var model = Mapper.Map<User, ProfileModel>(user);
+                model.Password = "";
+                model.Genders = new List<SelectListItem>();
+
+                foreach (var gender in _genderRepository.FindAllGenders())
+                {
+                    model.Genders.Add(new SelectListItem()
+                    {
+                        Selected = true,
+                        Text = gender.Name,
+                        Value = gender.GenderId.ToString()
+                    });
+                }
+                return View(model);
+            }
+
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(ProfileModel model)
+        {
+            model.Genders = new List<SelectListItem>();
+
+            foreach (var gender in _genderRepository.FindAllGenders())
+            {
+                model.Genders.Add(new SelectListItem()
+                {
+                    Selected = true,
+                    Text = gender.Name,
+                    Value = gender.GenderId.ToString()
+                });
+            }
+
+            if (ModelState.IsValid)
+            {
+                var user = _userRepository.FindUserById(model.UserId);
+                var existingNickname = _userRepository.FindUserByNickname(model.Nickname);
+                if (user.Nickname != model.Nickname && existingNickname != null)
+                {
+                    ModelState.AddModelError("", "Ese nombre de usuario ya esta siendo utilizado. Eliga otro.");
+                    return View(model);
+                }
+
+                user.Nickname = model.Nickname;
+                user.Name = model.Name;
+                user.Lastname = model.Lastname;
+                user.DateOfBirth = model.DateOfBirth;
+                user.GenderId = model.GenderId;
+                user.Address = model.Address;
+                user.Telephone = model.Telephone;
+                user.MobilePhone = model.MobilePhone;
+
+                if (!String.IsNullOrWhiteSpace(model.Password))
+                {
+                    if (model.Password == model.ConfirmPassword)
+                    {
+                        user.Password = SecurityHelpers.HashPassword(model.Password);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Las dos contraseñas no coinciden.");
+                        return View(model);
+                    }
+                }
+
+                _userRepository.SaveChanges();
+
+                return RedirectToAction("Profile", "Account", new { nickname = user.Nickname });
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Profile(string nickname)
+        {
+            var user = _userRepository.FindUserByNickname(nickname);
+            if (user == null) return RedirectToAction("NotFound", "Error");
+
+            var model = Mapper.Map<User, ProfileModel>(user);
+            return View(model);
+        }
+
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

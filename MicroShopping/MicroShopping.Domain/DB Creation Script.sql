@@ -44,6 +44,7 @@ create table [User]
 	UserId int primary key identity(1,1),
 	UserRoleId int foreign key references UserRole(UserRoleId),
 	Name nvarchar(64),
+	AvatarUrl nvarchar(1024),
 	Lastname nvarchar(64),
 	GenderId int foreign key references Gender(GenderId),
 	Email nvarchar(512),

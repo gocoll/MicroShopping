@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace MicroShopping.WebUI.Models
 {
-    public class UserModel
+    public class ProfileModel
     {
+        public int UserId { get; set; }
+
         [Required(ErrorMessage = "Debe escribir su nombre.")]
         [Display(Name = "Nombre:")]
         public string Name { get; set; }
+
+        public string AvatarUrl { get; set; }
 
         [Required(ErrorMessage = "Debe escribir su apellido.")]
         [Display(Name = "Apellido:")]
         public string Lastname { get; set; }
 
-        [Required(ErrorMessage = "Debe escribir su correo electronico.")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Debe escribir un correo electronico valido.")]
         [Display(Name = "Correo:")]
         public string Email { get; set; }
@@ -29,7 +32,6 @@ namespace MicroShopping.WebUI.Models
         [Display(Name = "Celular:")]
         public string MobilePhone { get; set; }
 
-        [Required(ErrorMessage = "Debe escribir su carnet.")]
         [Display(Name = "Carnet:")]
         public string Carnet { get; set; }
 
@@ -52,14 +54,12 @@ namespace MicroShopping.WebUI.Models
         [Display(Name = "Nombre de Usuario:")]
         public string Nickname { get; set; }
 
-        [Required(ErrorMessage = "Debe elegir una contraseña.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Contraseña:")]
+        [Display(Name = "Contraseña (si quieres cambiarla, llena el campo):")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña:")]
-        [Compare("Password", ErrorMessage = "Las dos contraseñas no coinciden. Por favor escriba la misma contraseña dos veces.")]
         public string ConfirmPassword { get; set; }
 
         public string EmailVerificationCode { get; set; }

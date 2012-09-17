@@ -25,6 +25,11 @@ namespace MicroShopping.Domain.Concrete
             return db.Users.SingleOrDefault(u => u.UserId == userId);
         }
 
+        public User FindUserByNickname(string nickname)
+        {
+            return db.Users.SingleOrDefault(u => u.Nickname == nickname);
+        }
+
         public UserCreationResults CreateUser(User user)
         {
             var email = db.Users.SingleOrDefault(u => u.Email == user.Email);

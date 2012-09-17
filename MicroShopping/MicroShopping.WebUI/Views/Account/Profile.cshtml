@@ -1,0 +1,36 @@
+﻿@model MicroShopping.WebUI.Models.ProfileModel
+
+@{
+    ViewBag.Title = String.Format("Perfil de {0}", @Model.Nickname);
+}
+
+<div id="profile">
+    <h1>Perfil de @Model.Nickname</h1>
+
+    <h3>Detalles</h3>
+
+    <div class="avatar">
+        <img src="@Model.AvatarUrl" alt="@Model.Nickname" />
+        <a href="@Url.Action("ChangeAvatar", "Account")" class="btn btn-info btn-small">Cambiar Imagen</a>
+        <a href="@Url.Action("EditProfile", "Account")" class="btn btn-success btn-small">Editar Perfil</a>
+    </div>
+
+    <dl>
+        <dt>Nombre de Usuario:</dt>
+        <dd>@Model.Nickname</dd>
+
+        <dt>Miembro desde:</dt>
+        <dd>@Model.DateOfRegistry.ToShortDateString()</dd>
+
+        <dt>Cumpleaños:</dt>
+        <dd>@Model.DateOfBirth.ToShortDateString()</dd>
+
+        <dt>Sexo:</dt>
+        <dd>@Model.GenderId</dd>
+    </dl>
+
+    <h3>Remates Ganados!</h3>
+    
+    <h3>Remates Participados</h3>
+
+</div>

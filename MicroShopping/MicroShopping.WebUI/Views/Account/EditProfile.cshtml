@@ -1,0 +1,97 @@
+﻿@model MicroShopping.WebUI.Models.ProfileModel
+
+@{
+    ViewBag.Title = "Editando Tu Perfil | MicroShopping";
+}
+
+@using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "register-form" }))
+{
+    <legend>Edita Tu Perfil</legend>
+    
+    @Html.ValidationSummary();
+    
+    @Html.HiddenFor(m => m.UserId)
+                             
+    <div class="control-group">
+        @Html.LabelFor(m => m.Nickname)
+        <div class="controls">
+            @Html.EditorFor(m => m.Nickname)
+            @Html.ValidationMessageFor(m => m.Nickname)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Password)
+        <div class="controls">
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.ConfirmPassword)
+        <div class="controls">
+            @Html.EditorFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+    </div>
+    
+    <legend>Information Personal</legend>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Lastname)
+        <div class="controls">
+            @Html.EditorFor(m => m.Lastname)
+            @Html.ValidationMessageFor(m => m.Lastname)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.DateOfBirth)
+        <div class="controls">
+            @Html.EditorFor(m => m.DateOfBirth)
+            @Html.ValidationMessageFor(m => m.DateOfBirth)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(model => model.Genders)
+        <div class="controls">
+            @Html.DropDownListFor(model => model.GenderId, Model.Genders)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Address)
+        <div class="controls">
+            @Html.EditorFor(m => m.Address)
+            @Html.ValidationMessageFor(m => m.Address)
+        </div>
+    </div>
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.Telephone)
+        <div class="controls">
+            @Html.EditorFor(m => m.Telephone)
+            @Html.ValidationMessageFor(m => m.Telephone)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.MobilePhone)
+        <div class="controls">
+            @Html.EditorFor(m => m.MobilePhone)
+            @Html.ValidationMessageFor(m => m.MobilePhone)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Guardar Tus Cambios" />
+}

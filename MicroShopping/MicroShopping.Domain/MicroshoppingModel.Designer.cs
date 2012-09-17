@@ -2209,6 +2209,30 @@ namespace MicroShopping.Domain
         private global::System.String _EmailVerificationCode;
         partial void OnEmailVerificationCodeChanging(global::System.String value);
         partial void OnEmailVerificationCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AvatarUrl
+        {
+            get
+            {
+                return _AvatarUrl;
+            }
+            set
+            {
+                OnAvatarUrlChanging(value);
+                ReportPropertyChanging("AvatarUrl");
+                _AvatarUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AvatarUrl");
+                OnAvatarUrlChanged();
+            }
+        }
+        private global::System.String _AvatarUrl;
+        partial void OnAvatarUrlChanging(global::System.String value);
+        partial void OnAvatarUrlChanged();
 
         #endregion
     

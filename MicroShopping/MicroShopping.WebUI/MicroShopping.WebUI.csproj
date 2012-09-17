@@ -166,6 +166,7 @@
     <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,12 +174,15 @@
     <Compile Include="Helpers\SecurityHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Public\assets\stylesheets\components\auction.less" />
     <None Include="Public\assets\stylesheets\components\form.less" />
+    <None Include="Public\assets\stylesheets\components\profile.less" />
     <None Include="Public\assets\stylesheets\globals\main.less" />
     <Content Include="LICENSE.txt" />
+    <Content Include="Public\assets\user-content\avatars\empty.txt" />
     <Content Include="Views\Home\Navigation.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
@@ -187,6 +191,9 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\_UserWidget.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
