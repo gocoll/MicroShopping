@@ -17,5 +17,10 @@ namespace MicroShopping.WebUI.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult Detail(int id)
+        {
+            return View();
+        }
     }
 }

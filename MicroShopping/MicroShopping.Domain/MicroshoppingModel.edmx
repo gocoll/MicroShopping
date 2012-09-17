@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MicroshoppingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MicroshoppingModelStoreContainer">
+          <EntitySet Name="Auction" EntityType="MicroshoppingModel.Store.Auction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AuctionCategory" EntityType="MicroshoppingModel.Store.AuctionCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gender" EntityType="MicroshoppingModel.Store.Gender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="MicroshoppingModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductBrand" EntityType="MicroshoppingModel.Store.ProductBrand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductCategory" EntityType="MicroshoppingModel.Store.ProductCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductPictures" EntityType="MicroshoppingModel.Store.ProductPictures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="MicroshoppingModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserAuctionLance" EntityType="MicroshoppingModel.Store.UserAuctionLance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRole" EntityType="MicroshoppingModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Auction__Auction__25869641" Association="MicroshoppingModel.Store.FK__Auction__Auction__25869641">
+            <End Role="AuctionCategory" EntitySet="AuctionCategory" />
+            <End Role="Auction" EntitySet="Auction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Auction__Product__24927208" Association="MicroshoppingModel.Store.FK__Auction__Product__24927208">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Auction" EntitySet="Auction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__164452B1" Association="MicroshoppingModel.Store.FK__Product__Product__164452B1">
+            <End Role="ProductBrand" EntitySet="ProductBrand" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__173876EA" Association="MicroshoppingModel.Store.FK__Product__Product__173876EA">
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductPi__Produ__1BFD2C07" Association="MicroshoppingModel.Store.FK__ProductPi__Produ__1BFD2C07">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductPictures" EntitySet="ProductPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__GenderId__09DE7BCC" Association="MicroshoppingModel.Store.FK__User__GenderId__09DE7BCC">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__UserRoleId__08EA5793" Association="MicroshoppingModel.Store.FK__User__UserRoleId__08EA5793">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAucti__Aucti__2B3F6F97" Association="MicroshoppingModel.Store.FK__UserAucti__Aucti__2B3F6F97">
+            <End Role="Auction" EntitySet="Auction" />
+            <End Role="UserAuctionLance" EntitySet="UserAuctionLance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAucti__UserI__2A4B4B5E" Association="MicroshoppingModel.Store.FK__UserAucti__UserI__2A4B4B5E">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserAuctionLance" EntitySet="UserAuctionLance" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Auction">
+          <Key>
+            <PropertyRef Name="AuctionId" />
+          </Key>
+          <Property Name="AuctionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="AuctionCategoryId" Type="int" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="1024" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="LastBidTime" Type="datetime" />
+          <Property Name="AvailableForBuyNow" Type="bit" />
+          <Property Name="BuyNowCost" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="LanceCost" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="ClosingLanceCount" Type="int" />
+          <Property Name="WonByUser" Type="int" />
+          <Property Name="LancesSpentByWinner" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="RegularCost" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="PercentageSaving" Type="int" />
+        </EntityType>
+        <EntityType Name="AuctionCategory">
+          <Key>
+            <PropertyRef Name="AuctionCategoryId" />
+          </Key>
+          <Property Name="AuctionCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductBrandId" Type="int" />
+          <Property Name="ProductCategoryId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Description" Type="nvarchar" />
+          <Property Name="WeightInMilligrams" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="SuggestedPrice" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="ProductBrandId" />
+          </Key>
+          <Property Name="ProductBrandId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryId" />
+          </Key>
+          <Property Name="ProductCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="ProductPictures">
+          <Key>
+            <PropertyRef Name="ProductPicturesId" />
+          </Key>
+          <Property Name="ProductPicturesId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="64" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="512" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="512" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" MaxLength="512" />
+          <Property Name="Carnet" Type="nvarchar" MaxLength="512" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="DateOfRegistry" Type="datetime" />
+          <Property Name="LastDateLogin" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LanceCreditBalance" Type="int" />
+          <Property Name="LancesSpent" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="64" />
+          <Property Name="Nickname" Type="nvarchar" MaxLength="64" />
+          <Property Name="EmailVerificationCode" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="UserAuctionLance">
+          <Key>
+            <PropertyRef Name="UserAuctionLanceId" />
+          </Key>
+          <Property Name="UserAuctionLanceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AuctionId" Type="int" />
+          <Property Name="DateTimeOfLance" Type="datetime" />
+          <Property Name="LanceCost" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <Association Name="FK__Auction__Auction__25869641">
+          <End Role="AuctionCategory" Type="MicroshoppingModel.Store.AuctionCategory" Multiplicity="0..1" />
+          <End Role="Auction" Type="MicroshoppingModel.Store.Auction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuctionCategory">
+              <PropertyRef Name="AuctionCategoryId" />
+            </Principal>
+            <Dependent Role="Auction">
+              <PropertyRef Name="AuctionCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Auction__Product__24927208">
+          <End Role="Product" Type="MicroshoppingModel.Store.Product" Multiplicity="0..1" />
+          <End Role="Auction" Type="MicroshoppingModel.Store.Auction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Auction">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__164452B1">
+          <End Role="ProductBrand" Type="MicroshoppingModel.Store.ProductBrand" Multiplicity="0..1" />
+          <End Role="Product" Type="MicroshoppingModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductBrand">
+              <PropertyRef Name="ProductBrandId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__173876EA">
+          <End Role="ProductCategory" Type="MicroshoppingModel.Store.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="MicroshoppingModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductPi__Produ__1BFD2C07">
+          <End Role="Product" Type="MicroshoppingModel.Store.Product" Multiplicity="0..1" />
+          <End Role="ProductPictures" Type="MicroshoppingModel.Store.ProductPictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ProductPictures">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__GenderId__09DE7BCC">
+          <End Role="Gender" Type="MicroshoppingModel.Store.Gender" Multiplicity="0..1" />
+          <End Role="User" Type="MicroshoppingModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__UserRoleId__08EA5793">
+          <End Role="UserRole" Type="MicroshoppingModel.Store.UserRole" Multiplicity="0..1" />
+          <End Role="User" Type="MicroshoppingModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAucti__Aucti__2B3F6F97">
+          <End Role="Auction" Type="MicroshoppingModel.Store.Auction" Multiplicity="0..1" />
+          <End Role="UserAuctionLance" Type="MicroshoppingModel.Store.UserAuctionLance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auction">
+              <PropertyRef Name="AuctionId" />
+            </Principal>
+            <Dependent Role="UserAuctionLance">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAucti__UserI__2A4B4B5E">
+          <End Role="User" Type="MicroshoppingModel.Store.User" Multiplicity="0..1" />
+          <End Role="UserAuctionLance" Type="MicroshoppingModel.Store.UserAuctionLance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAuctionLance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MicroshoppingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MicroshoppingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Auctions" EntityType="MicroshoppingModel.Auction" />
+          <EntitySet Name="AuctionCategories" EntityType="MicroshoppingModel.AuctionCategory" />
+          <EntitySet Name="Genders" EntityType="MicroshoppingModel.Gender" />
+          <EntitySet Name="Products" EntityType="MicroshoppingModel.Product" />
+          <EntitySet Name="ProductBrands" EntityType="MicroshoppingModel.ProductBrand" />
+          <EntitySet Name="ProductCategories" EntityType="MicroshoppingModel.ProductCategory" />
+          <EntitySet Name="ProductPictures" EntityType="MicroshoppingModel.ProductPicture" />
+          <EntitySet Name="Users" EntityType="MicroshoppingModel.User" />
+          <EntitySet Name="UserAuctionLances" EntityType="MicroshoppingModel.UserAuctionLance" />
+          <EntitySet Name="UserRoles" EntityType="MicroshoppingModel.UserRole" />
+          <AssociationSet Name="FK__Auction__Auction__25869641" Association="MicroshoppingModel.FK__Auction__Auction__25869641">
+            <End Role="AuctionCategory" EntitySet="AuctionCategories" />
+            <End Role="Auction" EntitySet="Auctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Auction__Product__24927208" Association="MicroshoppingModel.FK__Auction__Product__24927208">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Auction" EntitySet="Auctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAucti__Aucti__2B3F6F97" Association="MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97">
+            <End Role="Auction" EntitySet="Auctions" />
+            <End Role="UserAuctionLance" EntitySet="UserAuctionLances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__GenderId__09DE7BCC" Association="MicroshoppingModel.FK__User__GenderId__09DE7BCC">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__164452B1" Association="MicroshoppingModel.FK__Product__Product__164452B1">
+            <End Role="ProductBrand" EntitySet="ProductBrands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__173876EA" Association="MicroshoppingModel.FK__Product__Product__173876EA">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductPi__Produ__1BFD2C07" Association="MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductPictures" EntitySet="ProductPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__UserRoleId__08EA5793" Association="MicroshoppingModel.FK__User__UserRoleId__08EA5793">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAucti__UserI__2A4B4B5E" Association="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserAuctionLance" EntitySet="UserAuctionLances" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Auction">
+          <Key>
+            <PropertyRef Name="AuctionId" />
+          </Key>
+          <Property Name="AuctionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="AuctionCategoryId" Type="Int32" />
+          <Property Name="SerialNumber" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="StartTime" Type="DateTime" />
+          <Property Name="EndTime" Type="DateTime" />
+          <Property Name="LastBidTime" Type="DateTime" />
+          <Property Name="AvailableForBuyNow" Type="Boolean" />
+          <Property Name="BuyNowCost" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="LanceCost" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="ClosingLanceCount" Type="Int32" />
+          <Property Name="WonByUser" Type="Int32" />
+          <Property Name="LancesSpentByWinner" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="RegularCost" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="PercentageSaving" Type="Int32" />
+          <NavigationProperty Name="AuctionCategory" Relationship="MicroshoppingModel.FK__Auction__Auction__25869641" FromRole="Auction" ToRole="AuctionCategory" />
+          <NavigationProperty Name="Product" Relationship="MicroshoppingModel.FK__Auction__Product__24927208" FromRole="Auction" ToRole="Product" />
+          <NavigationProperty Name="UserAuctionLances" Relationship="MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97" FromRole="Auction" ToRole="UserAuctionLance" />
+        </EntityType>
+        <EntityType Name="AuctionCategory">
+          <Key>
+            <PropertyRef Name="AuctionCategoryId" />
+          </Key>
+          <Property Name="AuctionCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Auctions" Relationship="MicroshoppingModel.FK__Auction__Auction__25869641" FromRole="AuctionCategory" ToRole="Auction" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Users" Relationship="MicroshoppingModel.FK__User__GenderId__09DE7BCC" FromRole="Gender" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductBrandId" Type="Int32" />
+          <Property Name="ProductCategoryId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="WeightInMilligrams" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="SuggestedPrice" Type="Decimal" Precision="16" Scale="2" />
+          <NavigationProperty Name="Auctions" Relationship="MicroshoppingModel.FK__Auction__Product__24927208" FromRole="Product" ToRole="Auction" />
+          <NavigationProperty Name="ProductBrand" Relationship="MicroshoppingModel.FK__Product__Product__164452B1" FromRole="Product" ToRole="ProductBrand" />
+          <NavigationProperty Name="ProductCategory" Relationship="MicroshoppingModel.FK__Product__Product__173876EA" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductPictures" Relationship="MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07" FromRole="Product" ToRole="ProductPictures" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="ProductBrandId" />
+          </Key>
+          <Property Name="ProductBrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="MicroshoppingModel.FK__Product__Product__164452B1" FromRole="ProductBrand" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ProductCategoryId" />
+          </Key>
+          <Property Name="ProductCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="MicroshoppingModel.FK__Product__Product__173876EA" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductPicture">
+          <Key>
+            <PropertyRef Name="ProductPicturesId" />
+          </Key>
+          <Property Name="ProductPicturesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Product" Relationship="MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07" FromRole="ProductPictures" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Telephone" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="MobilePhone" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Carnet" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="DateOfRegistry" Type="DateTime" />
+          <Property Name="LastDateLogin" Type="DateTime" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LanceCreditBalance" Type="Int32" />
+          <Property Name="LancesSpent" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Nickname" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="EmailVerificationCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Gender" Relationship="MicroshoppingModel.FK__User__GenderId__09DE7BCC" FromRole="User" ToRole="Gender" />
+          <NavigationProperty Name="UserRole" Relationship="MicroshoppingModel.FK__User__UserRoleId__08EA5793" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="UserAuctionLances" Relationship="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E" FromRole="User" ToRole="UserAuctionLance" />
+        </EntityType>
+        <EntityType Name="UserAuctionLance">
+          <Key>
+            <PropertyRef Name="UserAuctionLanceId" />
+          </Key>
+          <Property Name="UserAuctionLanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AuctionId" Type="Int32" />
+          <Property Name="DateTimeOfLance" Type="DateTime" />
+          <Property Name="LanceCost" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="UserName" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Auction" Relationship="MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97" FromRole="UserAuctionLance" ToRole="Auction" />
+          <NavigationProperty Name="User" Relationship="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E" FromRole="UserAuctionLance" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Users" Relationship="MicroshoppingModel.FK__User__UserRoleId__08EA5793" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Auction__Auction__25869641">
+          <End Role="AuctionCategory" Type="MicroshoppingModel.AuctionCategory" Multiplicity="0..1" />
+          <End Role="Auction" Type="MicroshoppingModel.Auction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuctionCategory">
+              <PropertyRef Name="AuctionCategoryId" />
+            </Principal>
+            <Dependent Role="Auction">
+              <PropertyRef Name="AuctionCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Auction__Product__24927208">
+          <End Role="Product" Type="MicroshoppingModel.Product" Multiplicity="0..1" />
+          <End Role="Auction" Type="MicroshoppingModel.Auction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Auction">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAucti__Aucti__2B3F6F97">
+          <End Role="Auction" Type="MicroshoppingModel.Auction" Multiplicity="0..1" />
+          <End Role="UserAuctionLance" Type="MicroshoppingModel.UserAuctionLance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auction">
+              <PropertyRef Name="AuctionId" />
+            </Principal>
+            <Dependent Role="UserAuctionLance">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__GenderId__09DE7BCC">
+          <End Role="Gender" Type="MicroshoppingModel.Gender" Multiplicity="0..1" />
+          <End Role="User" Type="MicroshoppingModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__164452B1">
+          <End Role="ProductBrand" Type="MicroshoppingModel.ProductBrand" Multiplicity="0..1" />
+          <End Role="Product" Type="MicroshoppingModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductBrand">
+              <PropertyRef Name="ProductBrandId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__173876EA">
+          <End Role="ProductCategory" Type="MicroshoppingModel.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="MicroshoppingModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductPi__Produ__1BFD2C07">
+          <End Role="Product" Type="MicroshoppingModel.Product" Multiplicity="0..1" />
+          <End Role="ProductPictures" Type="MicroshoppingModel.ProductPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ProductPictures">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__UserRoleId__08EA5793">
+          <End Role="UserRole" Type="MicroshoppingModel.UserRole" Multiplicity="0..1" />
+          <End Role="User" Type="MicroshoppingModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAucti__UserI__2A4B4B5E">
+          <End Role="User" Type="MicroshoppingModel.User" Multiplicity="0..1" />
+          <End Role="UserAuctionLance" Type="MicroshoppingModel.UserAuctionLance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserAuctionLance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MicroshoppingModelStoreContainer" CdmEntityContainer="MicroshoppingEntities">
+          <EntitySetMapping Name="Auctions"><EntityTypeMapping TypeName="MicroshoppingModel.Auction"><MappingFragment StoreEntitySet="Auction">
+            <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
+            <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+            <ScalarProperty Name="AuctionCategoryId" ColumnName="AuctionCategoryId" />
+            <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+            <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+            <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+            <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+            <ScalarProperty Name="LastBidTime" ColumnName="LastBidTime" />
+            <ScalarProperty Name="AvailableForBuyNow" ColumnName="AvailableForBuyNow" />
+            <ScalarProperty Name="BuyNowCost" ColumnName="BuyNowCost" />
+            <ScalarProperty Name="LanceCost" ColumnName="LanceCost" />
+            <ScalarProperty Name="ClosingLanceCount" ColumnName="ClosingLanceCount" />
+            <ScalarProperty Name="WonByUser" ColumnName="WonByUser" />
+            <ScalarProperty Name="LancesSpentByWinner" ColumnName="LancesSpentByWinner" />
+            <ScalarProperty Name="RegularCost" ColumnName="RegularCost" />
+            <ScalarProperty Name="PercentageSaving" ColumnName="PercentageSaving" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuctionCategories"><EntityTypeMapping TypeName="MicroshoppingModel.AuctionCategory"><MappingFragment StoreEntitySet="AuctionCategory">
+            <ScalarProperty Name="AuctionCategoryId" ColumnName="AuctionCategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Genders"><EntityTypeMapping TypeName="MicroshoppingModel.Gender"><MappingFragment StoreEntitySet="Gender">
+            <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="MicroshoppingModel.Product"><MappingFragment StoreEntitySet="Product">
+            <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+            <ScalarProperty Name="ProductBrandId" ColumnName="ProductBrandId" />
+            <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="WeightInMilligrams" ColumnName="WeightInMilligrams" />
+            <ScalarProperty Name="SuggestedPrice" ColumnName="SuggestedPrice" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ProductBrands"><EntityTypeMapping TypeName="MicroshoppingModel.ProductBrand"><MappingFragment StoreEntitySet="ProductBrand">
+            <ScalarProperty Name="ProductBrandId" ColumnName="ProductBrandId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories"><EntityTypeMapping TypeName="MicroshoppingModel.ProductCategory"><MappingFragment StoreEntitySet="ProductCategory">
+            <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ProductPictures"><EntityTypeMapping TypeName="MicroshoppingModel.ProductPicture"><MappingFragment StoreEntitySet="ProductPictures">
+            <ScalarProperty Name="ProductPicturesId" ColumnName="ProductPicturesId" />
+            <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+            <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="MicroshoppingModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+            <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+            <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+            <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+            <ScalarProperty Name="DateOfRegistry" ColumnName="DateOfRegistry" />
+            <ScalarProperty Name="LastDateLogin" ColumnName="LastDateLogin" />
+            <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+            <ScalarProperty Name="LanceCreditBalance" ColumnName="LanceCreditBalance" />
+            <ScalarProperty Name="LancesSpent" ColumnName="LancesSpent" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+            <ScalarProperty Name="EmailVerificationCode" ColumnName="EmailVerificationCode" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserAuctionLances"><EntityTypeMapping TypeName="MicroshoppingModel.UserAuctionLance"><MappingFragment StoreEntitySet="UserAuctionLance">
+            <ScalarProperty Name="UserAuctionLanceId" ColumnName="UserAuctionLanceId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
+            <ScalarProperty Name="DateTimeOfLance" ColumnName="DateTimeOfLance" />
+            <ScalarProperty Name="LanceCost" ColumnName="LanceCost" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserRoles"><EntityTypeMapping TypeName="MicroshoppingModel.UserRole"><MappingFragment StoreEntitySet="UserRole">
+            <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MicroshoppingModel">
+        <EntityTypeShape EntityType="MicroshoppingModel.Auction" Width="1.5" PointX="5.25" PointY="3.25" Height="4.6725065104166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.AuctionCategory" Width="1.5" PointX="3" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.Gender" Width="1.5" PointX="3" PointY="13.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.Product" Width="1.5" PointX="3" PointY="4" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.ProductBrand" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.ProductCategory" Width="1.5" PointX="0.75" PointY="1.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.ProductPicture" Width="1.5" PointX="5.25" PointY="10.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.User" Width="1.5" PointX="5.25" PointY="12.875" Height="5.2494108072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.UserAuctionLance" Width="1.5" PointX="7.5" PointY="4.25" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicroshoppingModel.UserRole" Width="1.5" PointX="3" PointY="15.875" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="MicroshoppingModel.FK__Auction__Auction__25869641" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="6" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="6" PointY="3.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__Auction__Product__24927208" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5670475260416659" />
+          <ConnectorPoint PointX="5.25" PointY="5.5670475260416659" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.5285953776041659" />
+          <ConnectorPoint PointX="7.5" PointY="5.5285953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__User__GenderId__09DE7BCC" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.422841796875" />
+          <ConnectorPoint PointX="5.25" PointY="14.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__Product__Product__164452B1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.547841796875" />
+          <ConnectorPoint PointX="3" PointY="5.547841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__Product__Product__173876EA" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.3456835937499996" />
+          <ConnectorPoint PointX="2.625" PointY="3.7206835937499996" />
+          <ConnectorPoint PointX="2.625" PointY="3.625" />
+          <ConnectorPoint PointX="3" PointY="4" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="7.1340950520833317" />
+          <ConnectorPoint PointX="3.75" PointY="11.018992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="11.018992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__User__UserRoleId__08EA5793" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.672841796874998" />
+          <ConnectorPoint PointX="5.25" PointY="16.672841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="15.499705403645834" />
+          <ConnectorPoint PointX="8.25" PointY="15.499705403645834" />
+          <ConnectorPoint PointX="8.25" PointY="6.8071907552083317" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

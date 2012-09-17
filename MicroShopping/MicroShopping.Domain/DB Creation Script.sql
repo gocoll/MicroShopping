@@ -49,6 +49,7 @@ create table [User]
 	Email nvarchar(512),
 	Telephone nvarchar(512),
 	MobilePhone nvarchar(512),
+	[Address] nvarchar(512),
 	Carnet nvarchar(512),
 	DateOfBirth datetime,
 	DateOfRegistry datetime,
@@ -56,7 +57,6 @@ create table [User]
 	IsActive bit,
 	LanceCreditBalance int,
 	LancesSpent int,
-	[Login] nvarchar(64),
 	[Password] nvarchar(64),
 	Nickname nvarchar(64),
 	EmailVerificationCode nvarchar(64)

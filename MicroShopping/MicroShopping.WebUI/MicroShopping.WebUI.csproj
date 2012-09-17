@@ -167,28 +167,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Public\assets\stylesheets\components\auction.less" />
+    <None Include="Public\assets\stylesheets\components\form.less" />
     <None Include="Public\assets\stylesheets\globals\main.less" />
     <Content Include="Views\Home\Navigation.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Auction\Index.cshtml" />
     <Content Include="Views\Auction\Finished.cshtml" />
+    <Content Include="Views\Auction\Detail.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
     <Content Include="Public\assets\stylesheets\plugins\bootstrap.css" />
     <Content Include="Global.asax" />
-    <None Include="Public\assets\javascripts\jquery-1.6.2-vsdoc.js" />
-    <Content Include="Public\assets\javascripts\jquery-1.6.2.js" />
-    <Content Include="Public\assets\javascripts\jquery-1.6.2.min.js">
-      <DependentUpon>jquery-1.6.2.js</DependentUpon>
-    </Content>
     <None Include="Public\assets\javascripts\jquery.validate-vsdoc.js" />
-    <Content Include="Public\assets\javascripts\jquery-ui-1.8.11.js" />
-    <Content Include="Public\assets\javascripts\jquery-ui-1.8.11.min.js">
-      <DependentUpon>jquery-ui-1.8.11.js</DependentUpon>
-    </Content>
     <Content Include="Public\assets\javascripts\jquery.validate.js" />
     <Content Include="Public\assets\javascripts\jquery.validate.min.js">
       <DependentUpon>jquery.validate.js</DependentUpon>
@@ -234,6 +229,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MicroShopping.Domain\MicroShopping.Domain.csproj">
+      <Project>{01E71B14-CDBB-444A-9811-3362E7903F89}</Project>
+      <Name>MicroShopping.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

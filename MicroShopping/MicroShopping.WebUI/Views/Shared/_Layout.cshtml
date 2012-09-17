@@ -1,7 +1,6 @@
 ﻿@{
     Bundles.Reference("~/Public/assets/stylesheets/plugins/bootstrap.css");
     Bundles.Reference("~/Public/assets/stylesheets/globals/main.less");
-    Bundles.Reference("~/Public/assets/javascripts/microshopping.js");
 }
 
 <!DOCTYPE html>
@@ -11,11 +10,16 @@
     <title>@ViewBag.Title</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css' rel='stylesheet' type='text/css'>
+
+    <script src="@Url.Content("~/Public/assets/javascripts/microshopping.js")"></script>
+    <script src="@Url.Content("~/Public/assets/javascripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/javascripts/jquery.validate.unobtrusive.min.js")"></script>
+
     <link href='http://fonts.googleapis.com/css?family=Life+Savers' rel='stylesheet' type='text/css'>
 
     @Bundles.RenderStylesheets()
-
-    @Bundles.RenderScripts()
 </head>
 <body>
     <div id="wrapper">
@@ -29,6 +33,26 @@
                     </h1>
 
                     <p>Donde comprar es mas barato!</p>
+
+                    <div id="user-widget">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="avatar" href="#">
+                                <img src="http://www.placehold.it/48x48" alt="" />
+                            </a>
+                            <div class="info">
+                                <p class="username"><a href="#">Sergiolas</a></p>
+                                <p class="credit"><span>29</span> Lances <a href="#">(Comprar Mas!)</a></p>
+                            </div>
+
+                            <a class="logout" href="#">[Cerrar Sesion]</a>
+                            
+                        } else
+                        {
+                            <a href="@Url.Action("LogOn", "Account")" class="btn btn-info">Iniciar Sesion</a>
+                            <a href="@Url.Action("Register", "Account")" class="btn btn-success">Registrarse!</a>
+                        }
+                    </div>
 
                     @Html.Partial("_Navigation")
                 </div>

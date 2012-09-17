@@ -1,3 +1,6 @@
+using MicroShopping.Domain.Abstract;
+using MicroShopping.Domain.Concrete;
+
 [assembly: WebActivator.PreApplicationStartMethod(typeof(MicroShopping.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(MicroShopping.WebUI.App_Start.NinjectWebCommon), "Stop")]
 
@@ -53,6 +56,8 @@ namespace MicroShopping.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IGenderRepository>().To<EfGenderRepository>();
+            kernel.Bind<IUserRepository>().To<EfUserRepository>();
         }        
     }
 }

@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Hyundai Naibatsu | MicroShopping";
+}
+
+<div class="auction-detail">
+    <h1>Hyundai Naibatsu</h1>
+    <p class="auction-number">Remate Numero: <span>23</span></p>
+    <img class="thumb" src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="" />
+
+    <p class="latest-bid">Ultimo Lance: <span>sergiolas</span></p>
+    <p class="current-bid">$<span>3.04</span></p>
+
+    <p class="my-bid-count">Tu has dado: <span>16</span> Pujas</p>
+
+    <div class="timer">
+    </div>
+
+
+    <div class="description">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar tempus diam, vitae euismod elit pharetra eget. Morbi laoreet luctus lacus, et varius nisl faucibus a. Nam cursus leo id est eleifend a feugiat arcu fringilla. Aenean pellentesque suscipit elit, ac commodo nisl volutpat nec. Quisque vitae commodo tellus. Donec vel orci a augue ornare consectetur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vehicula eleifend fermentum. Praesent pellentesque sollicitudin elementum. Nam et lacus lorem, ac porta eros. Vestibulum ac justo turpis, ac feugiat quam. Aliquam vel quam eget turpis venenatis pulvinar. Suspendisse enim nunc, scelerisque quis condimentum sed, egestas vel nisi.
+         </p>
+
+         <p>Vivamus pharetra nisl at orci cursus et pellentesque eros egestas. Nam tellus libero, adipiscing sit amet fringilla sit amet, vestibulum ut sapien. Nulla cursus suscipit libero in congue. Quisque ornare urna vel tortor congue accumsan. Donec malesuada lacinia consectetur. Vivamus posuere, magna at adipiscing fermentum, nulla lectus fermentum urna, non rhoncus elit lacus non purus. Pellentesque sit amet lectus eget ligula venenatis suscipit. Quisque feugiat, sem et feugiat dignissim, mi enim varius felis, vitae pulvinar nulla quam vel nulla. Sed ut ipsum ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+         </p>
+    </div>
+
+</div>
+
+<div id="@Model.AuctionId" class="detailedauctionbox">
+    
+
+    <div class="information">
+        
+        
+        <div id="timer-area" class="@Model.AuctionId">
+            @if (Model.IsActive)
+            {
+                <p class="countdown">@Model.CurrentTimer</p>    
+            }
+            else
+            {
+                <p class="inactivecountdown">0</p>
+            }
+
+            @if (Model.IsFinished)
+            {
+                <button class="btn primary detailedbidbutton disabled">Puja</button>
+                <a class="btn success detailedbuybutton disabled" href="#">Precio Remate ($@Model.BuyNowCost)</a>     
+            }
+            else
+            {
+                <button class="btn primary detailedbidbutton">Puja</button>
+                <a class="btn success detailedbuybutton" href="@Url.Action("Checkout", "ProductCheckout", new { id = Model.ProductId, auctionId = Model.AuctionId })">Precio Remate ($@Model.BuyNowCost)</a>     
+            }
+            
+        </div>
+
+        <div id="saving-area">
+            <p>
+                <span class="product-cost-label">Precio:</span>
+                <span class="product-cost-value">
+                    $ <span id="product-cost-value-value">@Model.BuyNowCost</span>
+                </span>
+            </p>
+
+            <p>
+                <span class="auction-price-label">Puja (descuento):</span>
+                <span class="auction-price-value"> $
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span id="auction-price-value-cost-saving">@Model.MyUserPujasCount,00</span>
+                    }
+                    else
+                    {
+                        <span id="auction-price-value-cost-saving">0,00</span>
+                    }
+                </span>
+            </p>
+
+            <p>
+                <span class="total-savings-label">Economia De:</span>
+                <span class="total-savings-value">
+                    $ <span id="total-savings-value-value">0,00</span>
+                </span>
+            </p>
+        </div>
+
+        <div id="buy-now-area">        
+            <a href="@Url.Action("Checkout", "ProductCheckout", new { id = Model.ProductId, auctionId = Model.AuctionId })">
+                <img src="@Url.Content("~/Content/SiteImages/buy-now-button.png")" alt="Comprar ahora!" />
+            </a>
+        </div>
+    </div>
+
+    <div class="latest-bids">
+        <div class="latest-bids-content">
+            <h3>Ultimos Lances</h3>
+            <ul>
+                @foreach (var bid in Model.LastBids)
+                {
+                    <li>
+                        <span class="lancecount">$@bid.Cost</span>
+                        <span class="user">@bid.User</span>
+                        <span class="type">@bid.Type</span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="opening-times">
+            @if (Model.IsActive)
+            {
+                <p>Remate Abierto!</p>
+            }
+            else
+            {
+                if (Model.OpeningTime == "today")
+                {
+                    <p>Inicio del Remate</p>
+                    <p class="today">Hoy: <span class="opentoday">@Model.StartTime.AddHours(3).ToString("HH:mm")</span></p>
+                }
+                else if (Model.OpeningTime == "future")
+                {
+                    <p>Inicio del Remate</p>
+                    <p>@Model.EndTime.ToString("dd/MM/yyyy") @Model.StartTime.AddHours(3).ToString("HH:mm")</p>
+                }
+                else if (Model.OpeningTime == "finished")
+                {
+                    <p>Este remate concluyo!</p>
+                    <p>Ganador: @Model.LatestBidder</p>
+                }
+            }
+        </div>       
+    </div>
+</div>
