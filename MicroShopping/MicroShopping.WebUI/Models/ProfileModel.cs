@@ -11,6 +11,8 @@ namespace MicroShopping.WebUI.Models
     {
         public int UserId { get; set; }
 
+        public bool IsOwnerOfProfile { get; set; }
+
         [Required(ErrorMessage = "Debe escribir su nombre.")]
         [Display(Name = "Nombre:")]
         public string Name { get; set; }

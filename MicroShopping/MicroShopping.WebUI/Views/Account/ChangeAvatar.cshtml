@@ -1,0 +1,20 @@
+﻿@model MicroShopping.WebUI.Models.ChangeAvatarModel
+
+@{
+    ViewBag.Title = "Cambia Tu Foto | MicroShopping";
+}
+
+@using (Html.BeginForm("ChangeAvatar", "Account", FormMethod.Post, new { @class = "avatar-form", enctype = "multipart/form-data" }))
+{
+    <legend>Cambia Tu Foto de Perfil</legend>
+    
+    @Html.ValidationSummary();
+    
+    @Html.HiddenFor(m => m.UserId)
+                        
+    <img class="current-avatar" src="@Model.CurrentAvatarUrl" />
+    
+    <input type="file" id="avatar" name="avatar" />
+    
+    <input type="submit" class="btn btn-success" value="Sube Tu Nueva Foto" />
+}

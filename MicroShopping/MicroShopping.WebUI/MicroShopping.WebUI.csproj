@@ -173,6 +173,7 @@
     </Compile>
     <Compile Include="Helpers\SecurityHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ChangeAvatarModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\EditProfile.cshtml" />
+    <Content Include="Views\Account\ChangeAvatar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />

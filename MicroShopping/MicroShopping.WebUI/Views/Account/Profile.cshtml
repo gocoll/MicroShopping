@@ -27,6 +27,21 @@
 
         <dt>Sexo:</dt>
         <dd>@Model.GenderId</dd>
+
+        @if (Model.IsOwnerOfProfile)
+        {
+            <dt>Nombre Completo:</dt>
+            <dd>@Model.Name @Model.Lastname</dd>
+            
+            <dt>Correo Electronico:</dt>
+            <dd>@Model.Email</dd>
+            
+            <dt>Cantidad de Lances:</dt>
+            <dd>@Model.LanceCreditBalance</dd>
+            
+            <dt>Lances Gastados:</dt>
+            <dd>@Model.LancesSpent</dd>
+        }
     </dl>
 
     <h3>Remates Ganados!</h3>

@@ -5,7 +5,7 @@
         var user = userRepository.FindUserByEmail(User.Identity.Name);
         
         <a class="avatar" href="@Url.Action("Profile", "Account", new { nickname = user.Nickname })">
-            <img src="http://www.placehold.it/48x48" alt="@user.Nickname" />
+            <img src="@user.AvatarUrl" alt="@user.Nickname" />
         </a>
         <div class="info">
             <p class="username"><a href="@Url.Action("Profile", "Account", new { nickname = user.Nickname })">@user.Nickname</a></p>

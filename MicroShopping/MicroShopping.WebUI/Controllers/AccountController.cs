@@ -11,6 +11,7 @@ using MicroShopping.WebUI.Models;
 using AutoMapper;
 using MicroShopping.Domain;
 using MicroShopping.WebUI.Helpers;
+using System.Drawing;
 
 namespace MicroShopping.WebUI.Controllers
 {
@@ -23,6 +24,37 @@ namespace MicroShopping.WebUI.Controllers
         {
             _genderRepository = genderRepository;
             _userRepository = userRepository;
+        }
+
+        public ActionResult ChangeAvatar()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = _userRepository.FindUserByEmail(User.Identity.Name);
+                var model = new ChangeAvatarModel();
+                model.CurrentAvatarUrl = user.AvatarUrl;
+
+                return View(model);
+            }
+
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        public ActionResult ChangeAvatar(HttpPostedFileBase avatar)
+        {
+            if (avatar != null && avatar.ContentLength > 0)
+            {
+                var user = _userRepository.FindUserByEmail(User.Identity.Name);
+
+                var avatarPicture = Image.FromStream(avatar.InputStream, true, true);
+                avatarPicture.Save(Server.MapPath("~/Public/assets/user-content/avatars/") + user.Nickname + ".jpg");
+
+                user.AvatarUrl = Url.Content("~/Public/assets/user-content/avatars/") + user.Nickname + ".jpg";
+                _userRepository.SaveChanges();
+            }
+
+            return RedirectToAction("ChangeAvatar", "Account");
         }
 
         public ActionResult EditProfile()
@@ -114,8 +146,9 @@ namespace MicroShopping.WebUI.Controllers
         {
             var user = _userRepository.FindUserByNickname(nickname);
             if (user == null) return RedirectToAction("NotFound", "Error");
-
+           
             var model = Mapper.Map<User, ProfileModel>(user);
+            model.IsOwnerOfProfile = user.Email == model.Email;
             return View(model);
         }
 
