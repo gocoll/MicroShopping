@@ -9,7 +9,7 @@
         </a>
         <div class="info">
             <p class="username"><a href="@Url.Action("Profile", "Account", new { nickname = user.Nickname })">@user.Nickname</a></p>
-            <p class="credit"><span>@user.LanceCreditBalance</span> Lances <a href="#">(Comprar Mas!)</a></p>
+            <p class="credit"><span>@user.LanceCreditBalance</span> Lances <a href="@Url.Action("BuyLances", "Shop")">(Comprar Mas!)</a></p>
         </div>
 
         <a class="logout" href="@Url.Action("LogOff", "Account")">[Cerrar Sesion]</a>
