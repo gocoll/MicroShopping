@@ -1,0 +1,33 @@
+﻿@model MicroShopping.WebUI.Models.LancePackageModel
+
+@{
+    ViewBag.Title = "Compra tu paquete de Lances! | MicroShopping";
+}
+
+<div id="checkout">
+    <h2>Estas a punto de comprar tu paquete de Lances!</h2>
+    <h3>Detalles:</h3>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad Lances</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.LancePackageId</td>
+                <td>@Model.Name</td>
+                <td>@Model.CreditAmount</td>
+                <td>$@Model.Costo</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Completa tu Compra:</h3>
+
+
+</div>

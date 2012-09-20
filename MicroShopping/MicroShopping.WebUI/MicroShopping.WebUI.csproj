@@ -212,6 +212,7 @@
     <Content Include="Views\Admin\Packages.cshtml" />
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />
     <Content Include="Views\Package\Edit.cshtml" />
+    <Content Include="Views\Shop\CheckoutPackage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
