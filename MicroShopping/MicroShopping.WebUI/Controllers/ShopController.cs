@@ -12,5 +12,13 @@ namespace MicroShopping.WebUI.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CheckoutPackage()
+        {
+            var packageId = Request.Form["packageId"];
+
+            return View();
+        }
     }
 }

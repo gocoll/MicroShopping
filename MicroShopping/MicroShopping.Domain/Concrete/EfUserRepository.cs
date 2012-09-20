@@ -57,6 +57,15 @@ namespace MicroShopping.Domain.Concrete
             }
         }
 
+        public string FindRoleForUserById(int userId)
+        {
+            var user = db.Users.SingleOrDefault(u => u.UserId == userId);
+            if (user != null)
+                return user.UserRole.Name;
+            
+            return String.Empty;
+        }
+
         public bool ValidateCredentials(string email, string password)
         {
             var user = db.Users.SingleOrDefault(u => u.Email == email);

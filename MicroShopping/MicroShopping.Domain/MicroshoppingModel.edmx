@@ -8,7 +8,9 @@
         <EntityContainer Name="MicroshoppingModelStoreContainer">
           <EntitySet Name="Auction" EntityType="MicroshoppingModel.Store.Auction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AuctionCategory" EntityType="MicroshoppingModel.Store.AuctionCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BoughtPackage" EntityType="MicroshoppingModel.Store.BoughtPackage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Gender" EntityType="MicroshoppingModel.Store.Gender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LancePackage" EntityType="MicroshoppingModel.Store.LancePackage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="MicroshoppingModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductBrand" EntityType="MicroshoppingModel.Store.ProductBrand" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductCategory" EntityType="MicroshoppingModel.Store.ProductCategory" store:Type="Tables" Schema="dbo" />
@@ -23,6 +25,14 @@
           <AssociationSet Name="FK__Auction__Product__24927208" Association="MicroshoppingModel.Store.FK__Auction__Product__24927208">
             <End Role="Product" EntitySet="Product" />
             <End Role="Auction" EntitySet="Auction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BoughtPac__Lance__34C8D9D1" Association="MicroshoppingModel.Store.FK__BoughtPac__Lance__34C8D9D1">
+            <End Role="LancePackage" EntitySet="LancePackage" />
+            <End Role="BoughtPackage" EntitySet="BoughtPackage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BoughtPac__UserI__33D4B598" Association="MicroshoppingModel.Store.FK__BoughtPac__UserI__33D4B598">
+            <End Role="User" EntitySet="User" />
+            <End Role="BoughtPackage" EntitySet="BoughtPackage" />
           </AssociationSet>
           <AssociationSet Name="FK__Product__Product__164452B1" Association="MicroshoppingModel.Store.FK__Product__Product__164452B1">
             <End Role="ProductBrand" EntitySet="ProductBrand" />
@@ -81,12 +91,31 @@
           <Property Name="AuctionCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="64" />
         </EntityType>
+        <EntityType Name="BoughtPackage">
+          <Key>
+            <PropertyRef Name="BoughtPackageId" />
+          </Key>
+          <Property Name="BoughtPackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LancePackageId" Type="int" />
+          <Property Name="DateOfPurchase" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="GenderId" />
           </Key>
           <Property Name="GenderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="LancePackage">
+          <Key>
+            <PropertyRef Name="LancePackageId" />
+          </Key>
+          <Property Name="LancePackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreditAmount" Type="int" Nullable="false" />
+          <Property Name="Costo" Type="decimal" Nullable="false" Scale="2" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -186,6 +215,30 @@
             </Principal>
             <Dependent Role="Auction">
               <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BoughtPac__Lance__34C8D9D1">
+          <End Role="LancePackage" Type="MicroshoppingModel.Store.LancePackage" Multiplicity="0..1" />
+          <End Role="BoughtPackage" Type="MicroshoppingModel.Store.BoughtPackage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LancePackage">
+              <PropertyRef Name="LancePackageId" />
+            </Principal>
+            <Dependent Role="BoughtPackage">
+              <PropertyRef Name="LancePackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BoughtPac__UserI__33D4B598">
+          <End Role="User" Type="MicroshoppingModel.Store.User" Multiplicity="0..1" />
+          <End Role="BoughtPackage" Type="MicroshoppingModel.Store.BoughtPackage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BoughtPackage">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -324,6 +377,16 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserAuctionLance" EntitySet="UserAuctionLances" />
           </AssociationSet>
+          <EntitySet Name="BoughtPackages" EntityType="MicroshoppingModel.BoughtPackage" />
+          <EntitySet Name="LancePackages" EntityType="MicroshoppingModel.LancePackage" />
+          <AssociationSet Name="FK__BoughtPac__Lance__34C8D9D1" Association="MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1">
+            <End Role="LancePackage" EntitySet="LancePackages" />
+            <End Role="BoughtPackage" EntitySet="BoughtPackages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BoughtPac__UserI__33D4B598" Association="MicroshoppingModel.FK__BoughtPac__UserI__33D4B598">
+            <End Role="User" EntitySet="Users" />
+            <End Role="BoughtPackage" EntitySet="BoughtPackages" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Auction">
           <Key>
@@ -433,6 +496,7 @@
           <NavigationProperty Name="UserRole" Relationship="MicroshoppingModel.FK__User__UserRoleId__08EA5793" FromRole="User" ToRole="UserRole" />
           <NavigationProperty Name="UserAuctionLances" Relationship="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E" FromRole="User" ToRole="UserAuctionLance" />
           <Property Type="String" Name="AvatarUrl" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BoughtPackages" Relationship="MicroshoppingModel.FK__BoughtPac__UserI__33D4B598" FromRole="User" ToRole="BoughtPackage" />
         </EntityType>
         <EntityType Name="UserAuctionLance">
           <Key>
@@ -563,6 +627,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BoughtPackage">
+          <Key>
+            <PropertyRef Name="BoughtPackageId" />
+          </Key>
+          <Property Type="Int32" Name="BoughtPackageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="LancePackageId" />
+          <Property Type="DateTime" Name="DateOfPurchase" Nullable="false" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="LancePackage" Relationship="MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1" FromRole="BoughtPackage" ToRole="LancePackage" />
+          <NavigationProperty Name="User" Relationship="MicroshoppingModel.FK__BoughtPac__UserI__33D4B598" FromRole="BoughtPackage" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LancePackage">
+          <Key>
+            <PropertyRef Name="LancePackageId" />
+          </Key>
+          <Property Type="Int32" Name="LancePackageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreditAmount" Nullable="false" />
+          <Property Type="Decimal" Name="Costo" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="BoughtPackages" Relationship="MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1" FromRole="LancePackage" ToRole="BoughtPackage" />
+        </EntityType>
+        <Association Name="FK__BoughtPac__Lance__34C8D9D1">
+          <End Type="MicroshoppingModel.LancePackage" Role="LancePackage" Multiplicity="0..1" />
+          <End Type="MicroshoppingModel.BoughtPackage" Role="BoughtPackage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LancePackage">
+              <PropertyRef Name="LancePackageId" />
+            </Principal>
+            <Dependent Role="BoughtPackage">
+              <PropertyRef Name="LancePackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BoughtPac__UserI__33D4B598">
+          <End Type="MicroshoppingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="MicroshoppingModel.BoughtPackage" Role="BoughtPackage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BoughtPackage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -651,6 +761,27 @@
             <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BoughtPackages">
+            <EntityTypeMapping TypeName="MicroshoppingModel.BoughtPackage">
+              <MappingFragment StoreEntitySet="BoughtPackage">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+                <ScalarProperty Name="LancePackageId" ColumnName="LancePackageId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BoughtPackageId" ColumnName="BoughtPackageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LancePackages">
+            <EntityTypeMapping TypeName="MicroshoppingModel.LancePackage">
+              <MappingFragment StoreEntitySet="LancePackage">
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="CreditAmount" ColumnName="CreditAmount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LancePackageId" ColumnName="LancePackageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -719,9 +850,21 @@
           <ConnectorPoint PointX="5.25" PointY="16.672841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="15.499705403645834" />
-          <ConnectorPoint PointX="8.25" PointY="15.499705403645834" />
-          <ConnectorPoint PointX="8.25" PointY="6.8071907552083317" />
+          <ConnectorPoint PointX="6.75" PointY="12.876152846153847" />
+          <ConnectorPoint PointX="7.125" PointY="12.501152846153847" />
+          <ConnectorPoint PointX="7.125" PointY="5.5285953776041659" />
+          <ConnectorPoint PointX="7.5" PointY="5.5285953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="MicroshoppingModel.BoughtPackage" Width="1.5" PointX="7.5" PointY="14.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="MicroshoppingModel.LancePackage" Width="1.5" PointX="5.25" PointY="19.75" Height="1.9802864583333317" />
+        <AssociationConnector Association="MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1" >
+          <ConnectorPoint PointX="6.75" PointY="20.740143229166666" />
+          <ConnectorPoint PointX="8.25" PointY="20.740143229166666" />
+          <ConnectorPoint PointX="8.25" PointY="16.864889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="MicroshoppingModel.FK__BoughtPac__UserI__33D4B598" >
+          <ConnectorPoint PointX="6.75" PointY="15.682444661458334" />
+          <ConnectorPoint PointX="7.5" PointY="15.682444661458334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

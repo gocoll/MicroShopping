@@ -13,6 +13,8 @@ namespace MicroShopping.Domain.Abstract
         User FindUserById(int userId);
         User FindUserByNickname(string nickname);
         UserCreationResults CreateUser(User user);
+
+        string FindRoleForUserById(int userId);
         bool ValidateCredentials(string email, string password);
         void SaveChanges();
     }

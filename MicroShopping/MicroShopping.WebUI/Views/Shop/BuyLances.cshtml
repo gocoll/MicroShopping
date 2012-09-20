@@ -9,9 +9,9 @@
         <h3>20 Lances <span>5 gratis!</span></h3>
         <img src="@Url.Content("~/Public/assets/images/coin.png")" alt="Paquete Lance" />
         <p>Un paquete pequeño pero potente! 20 Lances y te regalamos 5 lances completamente gratis!</p>
-        @using (Html.BeginForm("Checkout", "Shop", FormMethod.Post))
+        @using (Html.BeginForm("CheckoutPackage", "Shop", FormMethod.Post))
         {
-            <input type="hidden" id="packageId" value="1" />
+            <input type="hidden" name="packageId" id="packageId" value="1" />
             <input class="btn btn-info" type="submit" value="Comprar!" />
         }
     </div>
@@ -20,9 +20,9 @@
         <h3>60 Lances <span>15 gratis!</span></h3>
         <img src="@Url.Content("~/Public/assets/images/bar.png")" alt="Paquete Lance" />
         <p>Para nuestros clientes que quieren ganar! 60 Lances y te regalamos 15 gratis!</p>
-        @using (Html.BeginForm("Checkout", "Shop", FormMethod.Post))
+        @using (Html.BeginForm("CheckoutPackage", "Shop", FormMethod.Post))
         {
-            <input type="hidden" id="packageId" value="1" />
+            <input type="hidden" name="packageId" id="packageId" value="2" />
             <input class="btn btn-info" type="submit" value="Comprar!" />
         }
     </div>
@@ -31,9 +31,9 @@
         <h3>100 Lances <span>25</span></h3>
         <img src="@Url.Content("~/Public/assets/images/chest.png")" alt="Paquete Lance" />
         <p>Solo para gente que REALMENTE quiere ganar! 100 lances y 25 lances 100% gratuitos!</p>
-        @using (Html.BeginForm("Checkout", "Shop", FormMethod.Post))
+        @using (Html.BeginForm("CheckoutPackage", "Shop", FormMethod.Post))
         {
-            <input type="hidden" id="packageId" value="1" />
+            <input type="hidden" name="packageId" id="packageId" value="3" />
             <input class="btn btn-info" type="submit" value="Comprar!" />
         }
     </div>

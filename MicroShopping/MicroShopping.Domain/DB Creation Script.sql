@@ -129,6 +129,23 @@ create table UserAuctionLance
 	UserName nvarchar(256)
 )
 
+create table LancePackage
+(
+	LancePackageId int primary key identity(1,1),
+	Name nvarchar(256) not null,
+	CreditAmount int not null,
+	Costo decimal(18,2) not null,
+)
+
+create table BoughtPackage
+(
+	BoughtPackageId int primary key identity(1,1),
+	UserId int foreign key references [User](UserId),
+	LancePackageId int foreign key references LancePackage(LancePackageId),
+	DateOfPurchase datetime not null,
+	Total decimal(18,2) not null
+)
+
 /* Insert some default values for Gender. */
 insert into Gender (Name)
 values ('Male');

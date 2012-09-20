@@ -27,6 +27,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__ProductPi__Produ__1BFD2C07", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Product), "ProductPictures", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.ProductPicture), true)]
 [assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__User__UserRoleId__08EA5793", "UserRole", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.UserRole), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.User), true)]
 [assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__UserAucti__UserI__2A4B4B5E", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "UserAuctionLance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.UserAuctionLance), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "LancePackage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.LancePackage), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
 
 #endregion
 
@@ -237,6 +239,38 @@ namespace MicroShopping.Domain
             }
         }
         private ObjectSet<UserRole> _UserRoles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BoughtPackage> BoughtPackages
+        {
+            get
+            {
+                if ((_BoughtPackages == null))
+                {
+                    _BoughtPackages = base.CreateObjectSet<BoughtPackage>("BoughtPackages");
+                }
+                return _BoughtPackages;
+            }
+        }
+        private ObjectSet<BoughtPackage> _BoughtPackages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LancePackage> LancePackages
+        {
+            get
+            {
+                if ((_LancePackages == null))
+                {
+                    _LancePackages = base.CreateObjectSet<LancePackage>("LancePackages");
+                }
+                return _LancePackages;
+            }
+        }
+        private ObjectSet<LancePackage> _LancePackages;
 
         #endregion
         #region AddTo Methods
@@ -319,6 +353,22 @@ namespace MicroShopping.Domain
         public void AddToUserRoles(UserRole userRole)
         {
             base.AddObject("UserRoles", userRole);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BoughtPackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBoughtPackages(BoughtPackage boughtPackage)
+        {
+            base.AddObject("BoughtPackages", boughtPackage);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LancePackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLancePackages(LancePackage lancePackage)
+        {
+            base.AddObject("LancePackages", lancePackage);
         }
 
         #endregion
@@ -952,6 +1002,240 @@ namespace MicroShopping.Domain
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MicroshoppingModel", Name="BoughtPackage")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BoughtPackage : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BoughtPackage object.
+        /// </summary>
+        /// <param name="boughtPackageId">Initial value of the BoughtPackageId property.</param>
+        /// <param name="dateOfPurchase">Initial value of the DateOfPurchase property.</param>
+        /// <param name="total">Initial value of the Total property.</param>
+        public static BoughtPackage CreateBoughtPackage(global::System.Int32 boughtPackageId, global::System.DateTime dateOfPurchase, global::System.Decimal total)
+        {
+            BoughtPackage boughtPackage = new BoughtPackage();
+            boughtPackage.BoughtPackageId = boughtPackageId;
+            boughtPackage.DateOfPurchase = dateOfPurchase;
+            boughtPackage.Total = total;
+            return boughtPackage;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BoughtPackageId
+        {
+            get
+            {
+                return _BoughtPackageId;
+            }
+            set
+            {
+                if (_BoughtPackageId != value)
+                {
+                    OnBoughtPackageIdChanging(value);
+                    ReportPropertyChanging("BoughtPackageId");
+                    _BoughtPackageId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BoughtPackageId");
+                    OnBoughtPackageIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _BoughtPackageId;
+        partial void OnBoughtPackageIdChanging(global::System.Int32 value);
+        partial void OnBoughtPackageIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _UserId;
+        partial void OnUserIdChanging(Nullable<global::System.Int32> value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LancePackageId
+        {
+            get
+            {
+                return _LancePackageId;
+            }
+            set
+            {
+                OnLancePackageIdChanging(value);
+                ReportPropertyChanging("LancePackageId");
+                _LancePackageId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LancePackageId");
+                OnLancePackageIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LancePackageId;
+        partial void OnLancePackageIdChanging(Nullable<global::System.Int32> value);
+        partial void OnLancePackageIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateOfPurchase
+        {
+            get
+            {
+                return _DateOfPurchase;
+            }
+            set
+            {
+                OnDateOfPurchaseChanging(value);
+                ReportPropertyChanging("DateOfPurchase");
+                _DateOfPurchase = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateOfPurchase");
+                OnDateOfPurchaseChanged();
+            }
+        }
+        private global::System.DateTime _DateOfPurchase;
+        partial void OnDateOfPurchaseChanging(global::System.DateTime value);
+        partial void OnDateOfPurchaseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Total
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                OnTotalChanging(value);
+                ReportPropertyChanging("Total");
+                _Total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total");
+                OnTotalChanged();
+            }
+        }
+        private global::System.Decimal _Total;
+        partial void OnTotalChanging(global::System.Decimal value);
+        partial void OnTotalChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "LancePackage")]
+        public LancePackage LancePackage
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<LancePackage> LancePackageReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="MicroshoppingModel", Name="Gender")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1046,6 +1330,164 @@ namespace MicroShopping.Domain
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MicroshoppingModel", Name="LancePackage")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class LancePackage : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new LancePackage object.
+        /// </summary>
+        /// <param name="lancePackageId">Initial value of the LancePackageId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="creditAmount">Initial value of the CreditAmount property.</param>
+        /// <param name="costo">Initial value of the Costo property.</param>
+        public static LancePackage CreateLancePackage(global::System.Int32 lancePackageId, global::System.String name, global::System.Int32 creditAmount, global::System.Decimal costo)
+        {
+            LancePackage lancePackage = new LancePackage();
+            lancePackage.LancePackageId = lancePackageId;
+            lancePackage.Name = name;
+            lancePackage.CreditAmount = creditAmount;
+            lancePackage.Costo = costo;
+            return lancePackage;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LancePackageId
+        {
+            get
+            {
+                return _LancePackageId;
+            }
+            set
+            {
+                if (_LancePackageId != value)
+                {
+                    OnLancePackageIdChanging(value);
+                    ReportPropertyChanging("LancePackageId");
+                    _LancePackageId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("LancePackageId");
+                    OnLancePackageIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _LancePackageId;
+        partial void OnLancePackageIdChanging(global::System.Int32 value);
+        partial void OnLancePackageIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CreditAmount
+        {
+            get
+            {
+                return _CreditAmount;
+            }
+            set
+            {
+                OnCreditAmountChanging(value);
+                ReportPropertyChanging("CreditAmount");
+                _CreditAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreditAmount");
+                OnCreditAmountChanged();
+            }
+        }
+        private global::System.Int32 _CreditAmount;
+        partial void OnCreditAmountChanging(global::System.Int32 value);
+        partial void OnCreditAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Costo
+        {
+            get
+            {
+                return _Costo;
+            }
+            set
+            {
+                OnCostoChanging(value);
+                ReportPropertyChanging("Costo");
+                _Costo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Costo");
+                OnCostoChanged();
+            }
+        }
+        private global::System.Decimal _Costo;
+        partial void OnCostoChanging(global::System.Decimal value);
+        partial void OnCostoChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage")]
+        public EntityCollection<BoughtPackage> BoughtPackages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage", value);
                 }
             }
         }
@@ -2332,6 +2774,28 @@ namespace MicroShopping.Domain
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "UserAuctionLance", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "BoughtPackage")]
+        public EntityCollection<BoughtPackage> BoughtPackages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "BoughtPackage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "BoughtPackage", value);
                 }
             }
         }

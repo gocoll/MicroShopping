@@ -47,8 +47,10 @@
   <ItemGroup>
     <Content Include="DB Creation Script.sql" />
     <Compile Include="Abstract\IGenderRepository.cs" />
+    <Compile Include="Abstract\IPackageRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EfGenderRepository.cs" />
+    <Compile Include="Concrete\EfPackageRepository.cs" />
     <Compile Include="Concrete\EfUserRepository.cs" />
     <Compile Include="MicroshoppingModel.Designer.cs">
       <AutoGen>True</AutoGen>

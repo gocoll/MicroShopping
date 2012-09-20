@@ -12,6 +12,7 @@ using AutoMapper;
 using MicroShopping.Domain;
 using MicroShopping.WebUI.Helpers;
 using System.Drawing;
+using MicroShopping.WebUI.Filters;
 
 namespace MicroShopping.WebUI.Controllers
 {
@@ -26,6 +27,7 @@ namespace MicroShopping.WebUI.Controllers
             _userRepository = userRepository;
         }
 
+        [Role(Roles=RoleDefinitions.Regular)]
         public ActionResult ChangeAvatar()
         {
             if (User.Identity.IsAuthenticated)
