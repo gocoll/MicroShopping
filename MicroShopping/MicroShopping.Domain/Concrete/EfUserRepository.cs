@@ -90,6 +90,28 @@ namespace MicroShopping.Domain.Concrete
             }
         }
 
+        public bool UserHasDashboardRights(string email)
+        {
+            var user = db.Users.SingleOrDefault(u => u.Email == email);
+            switch (user.UserRoleId)
+            {
+                case 1:
+                    return false;
+                case 2:
+                    return true;
+                case 3:
+                    return true;
+                case 4:
+                    return true;
+                case 5:
+                    return true;
+                case 6:
+                    return true;
+                default:
+                    return true;
+            }
+        }
+
         public void SaveChanges()
         {
             db.SaveChanges();
@@ -98,7 +120,7 @@ namespace MicroShopping.Domain.Concrete
         public void Dispose()
         {
             db.Dispose();
-        }
+        }    
     }
 
     public enum UserCreationResults

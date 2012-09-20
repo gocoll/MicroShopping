@@ -38,6 +38,10 @@ a:hover {
 	border-bottom: 5px solid #B5E655;
 }
 
+#content {
+	overflow: hidden;
+}
+
 #header {
 	overflow:hidden;
 
@@ -63,13 +67,13 @@ a:hover {
 	}
 
 	.navigation {
-		clear: left;
+		clear: both;
 		list-style-type: none;
 		overflow: hidden;
-		margin: 0px auto 30px auto;
-		width: 688px;
+		margin: 23px auto 25px auto;
 		border-bottom: 1px solid #7FC6BC;
 		padding-bottom: 10px;
+		float: left;
 
 		li {
 			float: left;
@@ -134,14 +138,14 @@ a:hover {
 				font-size: 10px;
 			}
 		}
-	}
 
-	.logout {
-		clear: both;
-		display: block;
-		float: left;
-		font-size: 10px;
-		margin-left: 6px;
+		.logout {
+			clear: both;
+			display: block;
+			float: left;
+			font-size: 10px;
+			margin-left: 6px;
+		}
 	}
 }
 

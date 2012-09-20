@@ -16,6 +16,7 @@ namespace MicroShopping.Domain.Abstract
 
         string FindRoleForUserById(int userId);
         bool ValidateCredentials(string email, string password);
+        bool UserHasDashboardRights(string email);
         void SaveChanges();
     }
 }

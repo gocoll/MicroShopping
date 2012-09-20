@@ -4,4 +4,17 @@
     <li><a href="@Url.Action("Finished", "Auction")">Remates Concluidos</a></li>
     <li><a href="@Url.Action("Index", "Testimonies")">Testimonios</a></li>
     <li><a href="@Url.Action("Index", "Help")">Ayuda</a></li>
+
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            using (MicroShopping.Domain.Concrete.EfUserRepository userRepository = new MicroShopping.Domain.Concrete.EfUserRepository())
+            {
+                if (userRepository.UserHasDashboardRights(User.Identity.Name))
+                {
+                    <li><a href="@Url.Action("Index", "Admin")">Panel Administracion</a></li>
+                }
+            }
+        }
+    }
 </ul>
