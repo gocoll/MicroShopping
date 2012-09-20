@@ -1,0 +1,41 @@
+﻿@model MicroShopping.WebUI.Models.LancePackageModel
+
+@{
+    ViewBag.Title = "Edit Package | MicroShopping";
+}
+
+@using (Html.BeginForm("Edit", "Package", FormMethod.Post, new { @class = "edit-entity" }))
+{
+    @Html.ValidationSummary();
+                             
+    <legend>Editando Paquete de Lances - Codigo #@Model.LancePackageId</legend>
+    
+    @Html.HiddenFor(m => m.LancePackageId)
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Costo)
+        <div class="controls">
+            @Html.EditorFor(m => m.Costo)
+            @Html.ValidationMessageFor(m => m.Costo)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.CreditAmount)
+        <div class="controls">
+            @Html.EditorFor(m => m.CreditAmount)
+            @Html.ValidationMessageFor(m => m.CreditAmount)
+        </div>
+    </div>
+    
+    
+    <input type="submit" class="btn btn-success" value="Guardar Cambios" />
+}

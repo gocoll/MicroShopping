@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Filters\RoleAttribute.cs" />
     <Compile Include="Filters\RoleDefinitions.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Helpers\SecurityHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ChangeAvatarModel.cs" />
+    <Compile Include="Models\LancePackageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -185,6 +187,7 @@
     <None Include="Public\assets\stylesheets\components\auction.less" />
     <None Include="Public\assets\stylesheets\components\form.less" />
     <None Include="Public\assets\stylesheets\components\lanceshop.less" />
+    <None Include="Public\assets\stylesheets\components\admin.less" />
     <None Include="Public\assets\stylesheets\components\profile.less" />
     <None Include="Public\assets\stylesheets\globals\main.less" />
     <Content Include="LICENSE.txt" />
@@ -206,6 +209,9 @@
     <Content Include="Views\Account\ChangeAvatar.cshtml" />
     <Content Include="Views\Shop\BuyLances.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Packages.cshtml" />
+    <Content Include="Views\Shared\_AdminNavigation.cshtml" />
+    <Content Include="Views\Package\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
