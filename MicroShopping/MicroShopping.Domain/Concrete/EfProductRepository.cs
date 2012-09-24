@@ -15,9 +15,19 @@ namespace MicroShopping.Domain.Concrete
             return db.Products;
         }
 
+        public IQueryable<ProductPicture> FindAllPhotosForProduct(int id)
+        {
+            return db.ProductPictures.Where(x => x.ProductId == id);
+        }
+
         public Product FindProductById(int id)
         {
             return db.Products.SingleOrDefault(x => x.ProductId == id);
+        }
+
+        public void AddProductPicture(ProductPicture picture)
+        {
+            db.AddToProductPictures(picture);
         }
 
         public void AddProduct(Product product)

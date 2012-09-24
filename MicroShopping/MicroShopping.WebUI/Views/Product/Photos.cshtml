@@ -1,0 +1,24 @@
+﻿@model MicroShopping.WebUI.Models.ProductPhotosModel
+
+@{
+    ViewBag.Title = "Fotos de Producto | MicroShopping";
+}
+
+@Html.Partial("_AdminNavigation")
+
+<div class="admin-content">
+    <h3>Listado de Fotografias de Producto:</h3>
+
+    <a href="@Url.Action("AddPhoto", "Product", new { id = Model.ProductId })" class="btn btn-info">Agregar Foto</a>
+
+    <div class="foto-listing">
+        @foreach (var pic in Model.ImageUrls)
+        {
+            <div class="photo">
+                <img src="@pic" alt="" />
+                <a class="btn btn-error" href="@Url.Action("DeletePhoto", "Product", new { id = Model.ProductId })">Eliminar</a>
+            </div>
+        }
+    </div>
+</div>
+

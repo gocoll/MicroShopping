@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -176,6 +177,52 @@ namespace MicroShopping.WebUI.Controllers
 
             return View(model);
         }
+            
+        public ActionResult Photos(int id)
+        {
+            var model = new ProductPhotosModel();
+            var photosForProduct = productRepository.FindAllPhotosForProduct(id);
+            
+            model.ProductId = id;
+            foreach (var pic in photosForProduct)
+            {
+                model.ImageUrls.Add(pic.ImageUrl);
+            }
 
+            return View(model);
+        }
+
+        public ActionResult AddPhoto(int id)
+        {
+            ViewBag.ProductId = id;
+            var product = productRepository.FindProductById(id);
+            ViewBag.ProductName = product.Name;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPhoto(int id, HttpPostedFileBase picture)
+        {
+            if (picture != null && picture.ContentLength > 0)
+            {
+                var product = productRepository.FindProductById(id);
+                var pic = Image.FromStream(picture.InputStream, true, true);
+
+                var filename = DateTime.Now.ToString("yyyyMMddHHmmssffff") + picture.FileName;
+                var path = Server.MapPath("~/Public/assets/user-content/product-pictures/") + filename;
+                pic.Save(path);
+
+                ProductPicture newPicture = new ProductPicture();
+                newPicture.ProductId = product.ProductId;
+                newPicture.ImageUrl = Url.Content("~/Public/assets/user-content/product-pictures/") + filename;
+
+                productRepository.AddProductPicture(newPicture);
+                productRepository.SaveChanges();
+
+                return RedirectToAction("Photos", "Product", new { id = id });
+            }
+
+            return RedirectToAction("AddPhoto", id);
+        }
     }
 }

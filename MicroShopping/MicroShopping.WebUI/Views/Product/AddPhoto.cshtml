@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Agregar Foto a Producto | MicroShopping";
+}
+
+@using (Html.BeginForm("AddPhoto", "Product", FormMethod.Post, new { @class = "addpicture-form", enctype = "multipart/form-data" }))
+{
+    <legend>Agrega una foto al producto: @ViewBag.ProductName</legend>
+    
+    @Html.ValidationSummary()
+
+    <input type="hidden" value="@ViewBag.ProductId" />
+
+    <input type="file" id="picture" name="picture" />
+    
+    <input type="submit" class="btn btn-success" value="Sube Nueva Foto" />
+}

@@ -194,6 +194,7 @@
     <Compile Include="Models\ProductBrandModel.cs" />
     <Compile Include="Models\ProductCategoryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ProductPhotosModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -496,6 +497,8 @@
     <Content Include="Views\Admin\Products.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Photos.cshtml" />
+    <Content Include="Views\Product\AddPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
@@ -542,6 +545,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Public\assets\stylesheets\sections\" />
+    <Folder Include="Public\assets\user-content\product-pictures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

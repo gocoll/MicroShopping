@@ -18,6 +18,7 @@
                 <th>Categoria</th>
                 <th>Marca</th>
                 <th>Nombre</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                     <td>@producto.Name</td>
                     <td>
                         <a class="btn btn-small btn-success" href="@Url.Action("Edit", "Product", new { id = producto.ProductId })">Editar</a>
+                        <a class="btn btn-small btn-warning" href="@Url.Action("Photos", "Product", new { id = producto.ProductId })">Fotos</a>
                     </td>
                 </tr>
             }
