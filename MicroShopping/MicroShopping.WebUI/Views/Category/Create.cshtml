@@ -1,0 +1,21 @@
+﻿@model MicroShopping.WebUI.Models.ProductCategoryModel
+
+@{
+    ViewBag.Title = "Crear Nueva Category";
+}
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "register-form" }))
+{
+    @Html.ValidationSummary();
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Crear Categoria" />
+}
+

@@ -1,0 +1,23 @@
+﻿@model MicroShopping.WebUI.Models.ProductBrandModel
+
+@{
+    ViewBag.Title = "Editar Marca";
+}
+
+@using (Html.BeginForm("Edit", "Brand", FormMethod.Post, new { @class = "register-form" }))
+{
+    @Html.ValidationSummary();
+    
+    @Html.HiddenFor(m => m.ProductBrandId)
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Guardar Cambios" />
+}
+

@@ -1,0 +1,23 @@
+﻿@model MicroShopping.WebUI.Models.ProductCategoryModel
+
+@{
+    ViewBag.Title = "Editar Categoria";
+}
+
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { @class = "register-form" }))
+{
+    @Html.ValidationSummary();
+    
+    @Html.HiddenFor(m => m.ProductCategoryId)                             
+                             
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Guardas Cambios" />
+}
+

@@ -173,6 +173,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
@@ -188,6 +190,8 @@
     <Compile Include="Models\ChangeAvatarModel.cs" />
     <Compile Include="Models\LancePackageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProductBrandModel.cs" />
+    <Compile Include="Models\ProductCategoryModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +227,12 @@
     <Content Include="Views\Shop\CheckoutPackage.cshtml" />
     <Content Include="Views\Shop\PurchaseComplete.cshtml" />
     <Content Include="Views\Admin\SoldPackages.cshtml" />
+    <Content Include="Views\Admin\Brands.cshtml" />
+    <Content Include="Views\Admin\Categories.cshtml" />
+    <Content Include="Views\Brand\Create.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Brand\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />

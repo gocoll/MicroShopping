@@ -14,10 +14,14 @@ namespace MicroShopping.WebUI.Controllers
     public class AdminController : Controller
     {
         private readonly IPackageRepository _packageRepository;
+        private readonly IProductBrandRepository productBrandRepository;
+        private readonly IProductCategoryRepository productCategoryRepository;
 
-        public AdminController(IPackageRepository packageRepository)
+        public AdminController(IPackageRepository packageRepository, IProductBrandRepository _productBrandRepository, IProductCategoryRepository _productCategoryRepository)
         {
             _packageRepository = packageRepository;
+            productBrandRepository = _productBrandRepository;
+            productCategoryRepository = _productCategoryRepository;
         }
 
         [Role(Roles = RoleDefinitions.Staff)]
@@ -56,6 +60,22 @@ namespace MicroShopping.WebUI.Controllers
                               });
             }
 
+            return View(model);
+        }
+
+        [Role(Roles = RoleDefinitions.Staff)]
+        public ActionResult Brands()
+        {
+            var brands = productBrandRepository.FindAllBrands().ToList();
+            var model = Mapper.Map<List<ProductBrand>, List<ProductBrandModel>>(brands);
+            return View(model);
+        }
+
+        [Role(Roles = RoleDefinitions.Staff)]
+        public ActionResult Categories()
+        {
+            var categories = productCategoryRepository.FindAllCategories().ToList();
+            var model = Mapper.Map<List<ProductCategory>, List<ProductCategoryModel>>(categories);
             return View(model);
         }
     }

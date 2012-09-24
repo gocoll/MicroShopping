@@ -1,0 +1,20 @@
+﻿@model MicroShopping.WebUI.Models.ProductBrandModel
+
+@{
+    ViewBag.Title = "Crear Nueva Marca";
+}
+
+@using (Html.BeginForm("Create", "Brand", FormMethod.Post, new { @class = "register-form" }))
+{
+    @Html.ValidationSummary();
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Crear Marca" />
+}

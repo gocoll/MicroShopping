@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MicroShopping.WebUI.Models.ProductBrandModel>
+
+@{
+    ViewBag.Title = "Marcas de Productos | MicroShopping";
+}
+
+@Html.Partial("_AdminNavigation")
+
+<div class="admin-content">
+    <h3>Listado de Marcas de Productos:</h3>
+
+    <a href="@Url.Action("Create","Brand")" class="btn btn-info">Crear Marca</a>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var package in Model)
+            {
+                <tr>
+                    <td>@package.ProductBrandId</td>
+                    <td>@package.Name</td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="@Url.Action("Edit", "Brand", new { id = package.ProductBrandId })">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
