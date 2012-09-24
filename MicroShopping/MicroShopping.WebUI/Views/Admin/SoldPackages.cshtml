@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MicroShopping.WebUI.Models.BoughtPackageModel>
+
+@{
+    ViewBag.Title = "Paquetes de Lances Vendidos | MicroShopping";
+}
+
+@Html.Partial("_AdminNavigation")
+
+<div class="admin-content">
+    <h3>Listado de Paquetes de Lances Vendidos:</h3>
+
+    <h4>Total Ganancias: <span class="label label-success">$@ViewBag.TotalEarnings</span></h4>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Paquete</th>
+                <th>Total</th>
+                <th>Comprador</th>                
+                <th>Correo</th>
+                <th>Fecha de Compra</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var package in Model)
+            {
+                <tr>
+                    <td>@package.BoughtPackageId</td>
+                    <td>@package.Name</td> 
+                    <td>$@package.Total</td>                   
+                    <td>@package.UserWhoBoughtName</td>
+                    <td><a href="mailto:@package.UserWhoBoughtEmail">@package.UserWhoBoughtEmail</a></td>
+                    <td>@package.DateOfPurchase</td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

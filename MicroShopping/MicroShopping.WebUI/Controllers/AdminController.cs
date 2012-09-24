@@ -33,5 +33,30 @@ namespace MicroShopping.WebUI.Controllers
             var model = Mapper.Map<List<LancePackage>, List<LancePackageModel>>(packages);
             return View(model);
         }
+
+        [Role(Roles = RoleDefinitions.FinanceAdministratorAndAbove)]
+        public ActionResult SoldPackages()
+        {
+            var soldPackages = _packageRepository.FindAllBoughtPackages();
+            ViewBag.TotalEarnings = soldPackages.Select(x => x.Total).Sum();
+            var model = new List<BoughtPackageModel>();
+
+            foreach (var p in soldPackages)
+            {
+                model.Add(new BoughtPackageModel()
+                              {
+                                  BoughtPackageId = p.BoughtPackageId,
+                                  DateOfPurchase = p.DateOfPurchase,
+                                  LancePackageId = (int)p.LancePackageId,
+                                  Name = p.LancePackage.Name,
+                                  Total = p.Total,
+                                  UserId = (int)p.UserId,
+                                  UserWhoBoughtEmail = p.User.Email,
+                                  UserWhoBoughtName = p.User.Name + " " + p.User.Lastname
+                              });
+            }
+
+            return View(model);
+        }
     }
 }

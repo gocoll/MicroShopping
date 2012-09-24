@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="Helpers\SecurityHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BoughtPackageModel.cs" />
     <Compile Include="Models\ChangeAvatarModel.cs" />
     <Compile Include="Models\LancePackageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -221,6 +222,7 @@
     <Content Include="Views\Package\Edit.cshtml" />
     <Content Include="Views\Shop\CheckoutPackage.cshtml" />
     <Content Include="Views\Shop\PurchaseComplete.cshtml" />
+    <Content Include="Views\Admin\SoldPackages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
