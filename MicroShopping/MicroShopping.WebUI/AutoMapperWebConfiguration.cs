@@ -18,6 +18,7 @@ namespace MicroShopping.WebUI
                 cfg.AddProfile(new LancePackageProfile());
                 cfg.AddProfile(new BrandProfile());
                 cfg.AddProfile(new CategoryProfile());
+                cfg.AddProfile(new ProductProfile());
             });
         }
 
@@ -56,6 +57,15 @@ namespace MicroShopping.WebUI
             {
                 Mapper.CreateMap<ProductCategory, ProductCategoryModel>();
                 Mapper.CreateMap<ProductCategoryModel, ProductCategory>();
+            }
+        }
+
+        public class ProductProfile : Profile
+        {
+            protected override void Configure()
+            {
+                Mapper.CreateMap<Product, ProductModel>();
+                Mapper.CreateMap<ProductModel, Product>();
             }
         }
     }

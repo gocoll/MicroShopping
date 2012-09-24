@@ -16,12 +16,14 @@ namespace MicroShopping.WebUI.Controllers
         private readonly IPackageRepository _packageRepository;
         private readonly IProductBrandRepository productBrandRepository;
         private readonly IProductCategoryRepository productCategoryRepository;
+        private readonly IProductRepository productRepository;
 
-        public AdminController(IPackageRepository packageRepository, IProductBrandRepository _productBrandRepository, IProductCategoryRepository _productCategoryRepository)
+        public AdminController(IPackageRepository packageRepository, IProductBrandRepository _productBrandRepository, IProductCategoryRepository _productCategoryRepository, IProductRepository _productRepository)
         {
             _packageRepository = packageRepository;
             productBrandRepository = _productBrandRepository;
             productCategoryRepository = _productCategoryRepository;
+            productRepository = _productRepository;
         }
 
         [Role(Roles = RoleDefinitions.Staff)]
@@ -76,6 +78,29 @@ namespace MicroShopping.WebUI.Controllers
         {
             var categories = productCategoryRepository.FindAllCategories().ToList();
             var model = Mapper.Map<List<ProductCategory>, List<ProductCategoryModel>>(categories);
+            return View(model);
+        }
+
+        [Role(Roles = RoleDefinitions.Staff)]
+        public ActionResult Products()
+        {
+            var products = productRepository.FindAllProducts();
+            var model = new List<ProductModel>();
+
+            foreach (var product in products)
+            {
+                model.Add(new ProductModel()
+                              {
+                                  BrandName = product.ProductBrand.Name,
+                                  CategoryName = product.ProductCategory.Name,
+                                  Description = product.Description,
+                                  Name = product.Name,
+                                  ProductId = product.ProductId,
+                                  SuggestedPrice = (decimal)product.SuggestedPrice,
+                                  WeightInMilligrams = (decimal)product.WeightInMilligrams
+                              });
+            }
+            
             return View(model);
         }
     }

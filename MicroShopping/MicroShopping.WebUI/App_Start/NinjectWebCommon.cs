@@ -61,6 +61,7 @@ namespace MicroShopping.WebUI.App_Start
             kernel.Bind<IPackageRepository>().To<EfPackageRepository>();
             kernel.Bind<IProductBrandRepository>().To<EfProductBrandRepository>();
             kernel.Bind<IProductCategoryRepository>().To<EfProductCategoryRepository>();
+            kernel.Bind<IProductRepository>().To<EfProductRepository>();
         }        
     }
 }

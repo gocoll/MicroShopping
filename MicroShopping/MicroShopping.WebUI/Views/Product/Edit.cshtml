@@ -1,0 +1,61 @@
+﻿@model MicroShopping.WebUI.Models.ProductModel
+
+@{
+    ViewBag.Title = "Editando Product | MicroShopping";
+}
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @class = "register-form" }))
+{
+    <legend>Editando Producto</legend>
+    
+    @Html.ValidationSummary();
+    
+    @Html.HiddenFor(m => m.ProductId)
+                             
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="controls">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+            
+    <textarea data-val="true" class="tinymce"
+              data-val-required="Debe escribir la descripcion del producto." 
+              id="Description" 
+              name="Description">
+        @Model.Description
+    </textarea>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.WeightInMilligrams)
+        <div class="controls">
+            @Html.EditorFor(m => m.WeightInMilligrams)
+            @Html.ValidationMessageFor(m => m.WeightInMilligrams)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.SuggestedPrice)
+        <div class="controls">
+            @Html.EditorFor(m => m.SuggestedPrice)
+            @Html.ValidationMessageFor(m => m.SuggestedPrice)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(model => model.ProductBrands)
+        <div class="controls">
+            @Html.DropDownListFor(model => model.ProductBrandId, Model.ProductBrands)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(model => model.ProductCategories)
+        <div class="controls">
+            @Html.DropDownListFor(model => model.ProductCategoryId, Model.ProductCategories)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Guardar Tus Cambios" />
+}
