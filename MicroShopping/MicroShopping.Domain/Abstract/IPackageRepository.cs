@@ -14,6 +14,8 @@ namespace MicroShopping.Domain.Abstract
         IQueryable<BoughtPackage> FindAllBoughtPackagesForUserById(int id);
         IQueryable<BoughtPackage> FindAllBoughtPackagesForUserByEmail(string email);
 
+        void CreateNewPackagePurchase(BoughtPackage boughtPackage);
+
         void SaveChanges();
     }
 }

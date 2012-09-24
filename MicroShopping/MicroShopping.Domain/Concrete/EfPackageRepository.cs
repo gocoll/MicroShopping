@@ -35,6 +35,11 @@ namespace MicroShopping.Domain.Concrete
             return db.BoughtPackages.Where(x => x.User.Email == email);
         }
 
+        public void CreateNewPackagePurchase(BoughtPackage boughtPackage)
+        {
+            db.BoughtPackages.AddObject(boughtPackage);
+        }
+
         public void SaveChanges()
         {
             db.SaveChanges();

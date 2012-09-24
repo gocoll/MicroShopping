@@ -98,11 +98,17 @@
     <Reference Include="Pandora">
       <HintPath>..\packages\Cassette.1.2.1\lib\net40-Client\Pandora.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SassAndCoffee.Core">
       <HintPath>..\packages\SassAndCoffee.Core.2.0.2.0\lib\net40-Client\SassAndCoffee.Core.dll</HintPath>
     </Reference>
     <Reference Include="SassAndCoffee.Ruby">
       <HintPath>..\packages\SassAndCoffee.Ruby.2.0.2.0\lib\net40-Client\SassAndCoffee.Ruby.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe">
+      <HintPath>..\packages\Stripe.1.6.0\lib\net40\Stripe.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
@@ -184,6 +190,7 @@
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StripeExample.cs" />
     <None Include="Public\assets\stylesheets\components\auction.less" />
     <None Include="Public\assets\stylesheets\components\form.less" />
     <None Include="Public\assets\stylesheets\components\lanceshop.less" />
@@ -213,6 +220,7 @@
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />
     <Content Include="Views\Package\Edit.cshtml" />
     <Content Include="Views\Shop\CheckoutPackage.cshtml" />
+    <Content Include="Views\Shop\PurchaseComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />
