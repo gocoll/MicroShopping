@@ -203,6 +203,7 @@
     <None Include="Public\assets\stylesheets\components\form.less" />
     <None Include="Public\assets\stylesheets\components\lanceshop.less" />
     <None Include="Public\assets\stylesheets\components\admin.less" />
+    <None Include="Public\assets\stylesheets\components\product.less" />
     <None Include="Public\assets\stylesheets\components\profile.less" />
     <None Include="Public\assets\stylesheets\globals\main.less" />
     <Content Include="LICENSE.txt" />

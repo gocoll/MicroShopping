@@ -7,7 +7,7 @@
 @Html.Partial("_AdminNavigation")
 
 <div class="admin-content">
-    <h3>Listado de Fotografias de Producto:</h3>
+    <h3>Listado de Fotografias de Producto: @ViewBag.ProductName</h3>
 
     <a href="@Url.Action("AddPhoto", "Product", new { id = Model.ProductId })" class="btn btn-info">Agregar Foto</a>
 

@@ -181,8 +181,9 @@ namespace MicroShopping.WebUI.Controllers
         public ActionResult Photos(int id)
         {
             var model = new ProductPhotosModel();
+            var product = productRepository.FindProductById(id);
             var photosForProduct = productRepository.FindAllPhotosForProduct(id);
-            
+            ViewBag.ProductName = product.Name;
             model.ProductId = id;
             foreach (var pic in photosForProduct)
             {
