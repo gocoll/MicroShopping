@@ -55,6 +55,8 @@
                 $(this).text("Fin!");
                 // Remove class so timer doesn't touch it again.
                 $(this).removeClass("active-seconds");
+                // Send message so server verifies if auction actually ended.
+                chat.verify($(this).siblings('p.auction-id').text());
             }
         });
     }, 1000);
@@ -74,6 +76,17 @@
         $(divId + " .stat .amount").html("$" + result.LanceCost);
         $(divId + " .stat .latestbidder").html(result.LatestBidder);
         $(divId + " .stat").fadeOut().fadeIn();
+    };
+
+    chat.endAuction = function (message) {
+        var result = $.parseJSON(message);
+        console.log(result);
+        if (result.IsClosed == true) {
+            var divId = "#" + result.AuctionId;
+            $(divId + " .timebanner").html("<p>Terminado</p>");
+        } else {
+            window.location.reload();
+        }
     };
 
     $.connection.hub.start();

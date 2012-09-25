@@ -115,7 +115,7 @@ namespace MicroShopping.WebUI.Controllers
                 a.ProductId = model.ProductId;
                 a.SerialNumber = model.SerialNumber;
                 a.IsActive = model.IsActive;
-                a.StartTime = model.StartTime;
+                a.StartTime = new DateTime(model.StartTime.Year, model.StartTime.Month, model.StartTime.Day, model.StartTime.Hour, model.StartTime.Minute, 0);
                 a.LanceCost = model.LanceCost;
                 a.RegularCost = model.RegularCost;
 
@@ -179,7 +179,7 @@ namespace MicroShopping.WebUI.Controllers
                 auction.ProductId = model.ProductId;
                 auction.SerialNumber = model.SerialNumber;
                 auction.IsActive = model.IsActive;
-                auction.StartTime = model.StartTime;
+                auction.StartTime = new DateTime(model.StartTime.Year, model.StartTime.Month, model.StartTime.Day, model.StartTime.Hour, model.StartTime.Minute, 0); ;
                 auction.LanceCost = model.LanceCost;
                 auction.RegularCost = model.RegularCost;
 
