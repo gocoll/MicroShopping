@@ -8,6 +8,7 @@ namespace MicroShopping.WebUI.Filters
     public static class RoleDefinitions
     {
         public const string Regular = "Regular";
+        public const string RegularAndAbove = "Regular,User Administrator,Auction Administrator,Finance Administrator,God";
         public const string UserAdministratorAndBelow = "Regular,User Administrator";
         public const string AuctionAdministratorAndBelow = "Regular,User Administrator,Auction Administrator";
         public const string FinanceAdministratorAndBelow = "Regular,User Administrator,Auction Administrator,Finance Administrator";

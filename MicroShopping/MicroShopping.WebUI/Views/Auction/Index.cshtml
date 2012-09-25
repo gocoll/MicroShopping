@@ -8,20 +8,43 @@
         <div class="item">
             <h2><a href="@Url.Action("Details", "Auction", new { id = a.AuctionId })">@a.ProductName</a></h2>
             <a class="thumb" href="@Url.Action("Details", "Auction", new { id = a.AuctionId })"><img src="@a.Thumbnail" alt="@a.ProductName" /></a>
-            <div class="timebanner">
-                <p>
-                @if (a.StartTime.Date == DateTime.Now.Date)
-                {
-                    <span class="opendate">Hoy</span>    
-                }
-                else
-                {
-                    <span class="opendate">@a.StartTime.ToShortDateString()</span>    
-                }
-                
-                <span class="opentime">@a.StartTime.ToShortTimeString()</span></p>
-            </div>
-            <p class="seconds">15</p>
+            
+            @if (a.IsActive)
+            {
+                <div class="timebanner">        
+                    <p>
+                        <span class="opendate">En Remate Ahora!</span>                
+                        <span class="opentime"></span>
+                    </p>
+                </div>
+            }
+            else if (a.StartTime.Date == DateTime.Now.Date)
+            {
+                <div class="timebanner opentoday">        
+                    <p>
+                        <span class="opendate">Hoy</span>                
+                        <span class="opentime">@a.StartTime.ToShortTimeString()</span>
+                    </p>
+                </div>
+            }
+            else
+            {
+                <div class="timebanner">        
+                    <p>
+                        <span class="opendate">@a.StartTime.ToShortDateString()</span>                
+                        <span class="opentime">@a.StartTime.ToShortTimeString()</span>
+                    </p>
+                </div>
+            }               
+
+            @if (a.IsActive)
+            {
+                <p class="seconds active-seconds">15</p>    
+            }
+            else
+            {
+                <p class="seconds">15</p>    
+            }            
             <div class="stat">
                 <p class="amount">$<span>@a.LanceCost</span></p>
                 <p class="latestbidder">@a.LatestBidder</p>

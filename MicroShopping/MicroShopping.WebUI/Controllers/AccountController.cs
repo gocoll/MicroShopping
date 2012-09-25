@@ -27,7 +27,6 @@ namespace MicroShopping.WebUI.Controllers
             _userRepository = userRepository;
         }
 
-        [Role(Roles=RoleDefinitions.Regular)]
         public ActionResult ChangeAvatar()
         {
             if (User.Identity.IsAuthenticated)

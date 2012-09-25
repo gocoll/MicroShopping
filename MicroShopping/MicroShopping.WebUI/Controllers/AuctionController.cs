@@ -22,9 +22,19 @@ namespace MicroShopping.WebUI.Controllers
 
         public ActionResult Index()
         {
+            /* Open auctions that need opening. */
+            var needToOpenAuctions = auctionRepository.FindAllAuctions()
+                                                      .Where(x => x.EndTime == null)
+                                                      .Where(x => x.StartTime <= DateTime.Now);
+            foreach (var a in needToOpenAuctions)
+            {
+                a.IsActive = true;
+            }
+            auctionRepository.SaveChanges();
+            /* Done opening auctions. */
+
             var upcomingAuctions = auctionRepository.FindAllAuctions()
-                                                    .Where(x => x.StartTime >= DateTime.Now)
-                                                    .Where(x => x.IsActive == false)
+                                                    .Where(x => x.EndTime == null)
                                                     .OrderBy(x => x.StartTime);
 
             var model = new List<AuctionModel>();
@@ -35,6 +45,7 @@ namespace MicroShopping.WebUI.Controllers
                 auction.ProductName = a.Product.Name;
                 auction.AuctionId = a.AuctionId;
                 auction.StartTime = (DateTime)a.StartTime;
+                auction.IsActive = (bool)a.IsActive;
                 auction.LanceCost = (decimal)a.LanceCost;
                 auction.Thumbnail = a.Product.ProductPictures.First().ImageUrl;
 

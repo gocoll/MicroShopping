@@ -12,5 +12,11 @@ namespace MicroShopping.WebUI.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult GetTime()
+        {
+            return Content(@DateTime.Now.ToShortTimeString());
+        }
     }
 }
