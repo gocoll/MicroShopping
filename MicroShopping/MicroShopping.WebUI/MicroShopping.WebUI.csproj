@@ -503,6 +503,7 @@
     <Content Include="Views\Product\AddPhoto.cshtml" />
     <Content Include="Views\Admin\Auctions.cshtml" />
     <Content Include="Views\Auction\Create.cshtml" />
+    <Content Include="Views\Auction\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />

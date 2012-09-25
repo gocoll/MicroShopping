@@ -109,7 +109,7 @@ namespace MicroShopping.WebUI.Controllers
         [Role(Roles = RoleDefinitions.FinanceAdministratorAndAbove)]
         public ActionResult Auctions()
         {
-            var auctions = auctionRepository.FindAllAuctions();
+            var auctions = auctionRepository.FindAllAuctions().OrderBy(x => x.StartTime);
             var model = new List<AuctionModel>();
 
             foreach (var a in auctions)
