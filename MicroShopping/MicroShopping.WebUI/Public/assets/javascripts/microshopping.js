@@ -84,7 +84,7 @@
         if (result.IsClosed == true) {
             var divId = "#" + result.AuctionId;
             $(divId + " .timebanner").html("<p><span class='opendate'>Terminado!</span></p>");
-        } else {
+        } else {ou
             window.location.reload();
         }
     };
