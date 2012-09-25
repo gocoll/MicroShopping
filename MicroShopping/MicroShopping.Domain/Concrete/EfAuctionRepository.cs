@@ -25,6 +25,11 @@ namespace MicroShopping.Domain.Concrete
             db.AddToAuctions(auction);
         }
 
+        public void AddAuctionBid(UserAuctionLance bid)
+        {
+            db.AddToUserAuctionLances(bid);
+        }
+
         public void SaveChanges()
         {
             db.SaveChanges();

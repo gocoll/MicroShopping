@@ -5,7 +5,7 @@
 
     @foreach (var a in Model)
     {
-        <div class="item">
+        <div id="@a.AuctionId" class="item">
             <h2><a href="@Url.Action("Details", "Auction", new { id = a.AuctionId })">@a.ProductName</a></h2>
             <a class="thumb" href="@Url.Action("Details", "Auction", new { id = a.AuctionId })"><img src="@a.Thumbnail" alt="@a.ProductName" /></a>
             
@@ -47,10 +47,11 @@
             }            
             <div class="stat">
                 <p class="amount">$<span>@a.LanceCost</span></p>
-                <p class="latestbidder">@a.LatestBidder</p>
+                <p class="latestbidder">@a.LatestBidder</p>                
             </div>
 
             <button class="btn btn-info pujar">Pujar!</button>
+            <p class="auction-id" style="visibility: hidden;">@a.AuctionId</p>
         </div>
     }
 

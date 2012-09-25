@@ -10,6 +10,7 @@ namespace MicroShopping.Domain.Abstract
         IQueryable<Auction> FindAllAuctions();
         Auction FindAuctionById(int id);
         void AddAuction(Auction auction);
+        void AddAuctionBid(UserAuctionLance bid);
         void SaveChanges();
     }
 }

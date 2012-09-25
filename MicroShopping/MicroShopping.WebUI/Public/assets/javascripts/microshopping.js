@@ -15,8 +15,6 @@
 
             // Get start time of each auction opening today.
             var startTime = $(this).find('.opentime').text();
-            console.log(startTime);
-            console.log($('#time').text());
 
             // Is that start time equal to the server time listed on the page?
             if (startTime == $('#time').text()) {
@@ -60,4 +58,23 @@
             }
         });
     }, 1000);
+
+    var chat = $.connection.chat;
+    /* Actions when someone clicks the Bid button. */
+    $(".pujar").click(function () {
+        chat.receive($(this).siblings('.auction-id').text());
+        $(this).parent().siblings('.seconds').text('15');
+    });
+
+    chat.updateAuction = function (message) {
+        var result = $.parseJSON(message);
+
+        var divId = "#" + result.AuctionId;
+        $(divId + " .seconds").text("15");
+        $(divId + " .stat .amount").html("$" + result.LanceCost);
+        $(divId + " .stat .latestbidder").html(result.LatestBidder);
+        $(divId + " .stat").fadeOut().fadeIn();
+    };
+
+    $.connection.hub.start();
 });
