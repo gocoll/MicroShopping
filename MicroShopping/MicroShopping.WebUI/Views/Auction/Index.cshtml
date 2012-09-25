@@ -1,124 +1,34 @@
-﻿<div id="auctions">
+﻿@model IEnumerable<MicroShopping.WebUI.Models.AuctionModel>
+
+<div id="auctions">
     <h2>Remates Que Se Vienen!</h2>
 
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
+    @foreach (var a in Model)
+    {
+        <div class="item">
+            <h2><a href="@Url.Action("Details", "Auction", new { id = a.AuctionId })">@a.ProductName</a></h2>
+            <a class="thumb" href="@Url.Action("Details", "Auction", new { id = a.AuctionId })"><img src="@a.Thumbnail" alt="@a.ProductName" /></a>
+            <div class="timebanner">
+                <p>
+                @if (a.StartTime.Date == DateTime.Now.Date)
+                {
+                    <span class="opendate">Hoy</span>    
+                }
+                else
+                {
+                    <span class="opendate">@a.StartTime.ToShortDateString()</span>    
+                }
+                
+                <span class="opentime">@a.StartTime.ToShortTimeString()</span></p>
+            </div>
+            <p class="seconds">15</p>
+            <div class="stat">
+                <p class="amount">$<span>@a.LanceCost</span></p>
+                <p class="latestbidder">@a.LatestBidder</p>
+            </div>
 
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
+            <button class="btn btn-info pujar">Pujar!</button>
         </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
+    }
 
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
-    <div class="item">
-        <h2><a href="#">Nissan Z350</a></h2>
-        <a class="thumb" href="#"><img src="http://www.desktopcar.net/wallpaper/11655-3/Nissan_Z350-44.jpg" alt="Nissan Car" /></a>
-        <div class="timebanner">
-            <p><span class="opendate">Hoy</span><span class="opentime">17:30</span></p>
-        </div>
-        <p class="seconds">15</p>
-        <div class="stat">
-            <p class="amount">$<span>2.54</span></p>
-            <p class="latestbidder">popilonion</p>
-        </div>
-
-        <button class="btn btn-warning comprar">Comprar Ahora</button>
-        <button class="btn btn-info pujar">Pujar!</button>
-    </div>
 </div>

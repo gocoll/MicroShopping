@@ -12,6 +12,8 @@ namespace MicroShopping.WebUI.Models
         public int AuctionId { get; set; }
         public int AuctionCategoryId { get; set; }
         public bool IsFinished { get; set; }
+        public string LatestBidder { get; set; }
+        public string Thumbnail { get; set; }
 
         public string ProductName { get; set; }
         [Display(Name = "Numero de Serie:")]

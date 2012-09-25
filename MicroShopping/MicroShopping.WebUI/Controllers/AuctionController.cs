@@ -22,7 +22,31 @@ namespace MicroShopping.WebUI.Controllers
 
         public ActionResult Index()
         {
-            return PartialView();
+            var upcomingAuctions = auctionRepository.FindAllAuctions()
+                                                    .Where(x => x.StartTime >= DateTime.Now)
+                                                    .Where(x => x.IsActive == false)
+                                                    .OrderBy(x => x.StartTime);
+
+            var model = new List<AuctionModel>();
+            
+            foreach (var a in upcomingAuctions)
+            {
+                var auction = new AuctionModel();
+                auction.ProductName = a.Product.Name;
+                auction.AuctionId = a.AuctionId;
+                auction.StartTime = (DateTime)a.StartTime;
+                auction.LanceCost = (decimal)a.LanceCost;
+                auction.Thumbnail = a.Product.ProductPictures.First().ImageUrl;
+
+                var latestBidder = a.UserAuctionLances.LastOrDefault();
+                if (latestBidder != null)
+                    auction.LatestBidder = latestBidder.UserName;
+                else
+                    auction.LatestBidder = "Ninguna";
+
+                model.Add(auction);
+            }
+            return PartialView(model);
         }
 
         public ActionResult Finished()
@@ -67,6 +91,11 @@ namespace MicroShopping.WebUI.Controllers
                     Text = category.Name,
                     Value = category.ProductCategoryId.ToString()
                 });
+            }
+
+            if (model.StartTime <= DateTime.Now)
+            {
+                ModelState.AddModelError("", "No puede crear un remate en el pasado.");
             }
 
             if (ModelState.IsValid)
