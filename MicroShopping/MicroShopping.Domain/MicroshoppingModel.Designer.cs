@@ -18,17 +18,16 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Auction__Auction__25869641", "AuctionCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.AuctionCategory), "Auction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Auction), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Auction__Product__24927208", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Product), "Auction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Auction), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__2B3F6F97", "Auction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Auction), "UserAuctionLance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.UserAuctionLance), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__User__GenderId__09DE7BCC", "Gender", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Gender), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.User), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Product__Product__164452B1", "ProductBrand", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.ProductBrand), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Product), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Product__Product__173876EA", "ProductCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.ProductCategory), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Product), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__ProductPi__Produ__1BFD2C07", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Product), "ProductPictures", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.ProductPicture), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__User__UserRoleId__08EA5793", "UserRole", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.UserRole), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.User), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__UserAucti__UserI__2A4B4B5E", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "UserAuctionLance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.UserAuctionLance), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "LancePackage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.LancePackage), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
-[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Auction__Product__0B91BA14", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Product), "Auction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Auction), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__114A936A", "Auction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Auction), "UserAuctionLance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.UserAuctionLance), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__1AD3FDA4", "LancePackage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.LancePackage), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__19DFD96B", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "BoughtPackage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.BoughtPackage), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__User__GenderId__70DDC3D8", "Gender", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Gender), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.User), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Product__Product__7D439ABD", "ProductBrand", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.ProductBrand), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Product), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__Product__Product__7E37BEF6", "ProductCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.ProductCategory), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.Product), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__ProductPi__Produ__02FC7413", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.Product), "ProductPicture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.ProductPicture), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__User__UserRoleId__6FE99F9F", "UserRole", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.UserRole), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.User), true)]
+[assembly: EdmRelationshipAttribute("MicroshoppingModel", "FK__UserAucti__UserI__10566F31", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MicroShopping.Domain.User), "UserAuctionLance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MicroShopping.Domain.UserAuctionLance), true)]
 
 #endregion
 
@@ -115,6 +114,22 @@ namespace MicroShopping.Domain
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<BoughtPackage> BoughtPackages
+        {
+            get
+            {
+                if ((_BoughtPackages == null))
+                {
+                    _BoughtPackages = base.CreateObjectSet<BoughtPackage>("BoughtPackages");
+                }
+                return _BoughtPackages;
+            }
+        }
+        private ObjectSet<BoughtPackage> _BoughtPackages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Gender> Genders
         {
             get
@@ -127,6 +142,22 @@ namespace MicroShopping.Domain
             }
         }
         private ObjectSet<Gender> _Genders;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LancePackage> LancePackages
+        {
+            get
+            {
+                if ((_LancePackages == null))
+                {
+                    _LancePackages = base.CreateObjectSet<LancePackage>("LancePackages");
+                }
+                return _LancePackages;
+            }
+        }
+        private ObjectSet<LancePackage> _LancePackages;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -239,38 +270,6 @@ namespace MicroShopping.Domain
             }
         }
         private ObjectSet<UserRole> _UserRoles;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<BoughtPackage> BoughtPackages
-        {
-            get
-            {
-                if ((_BoughtPackages == null))
-                {
-                    _BoughtPackages = base.CreateObjectSet<BoughtPackage>("BoughtPackages");
-                }
-                return _BoughtPackages;
-            }
-        }
-        private ObjectSet<BoughtPackage> _BoughtPackages;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<LancePackage> LancePackages
-        {
-            get
-            {
-                if ((_LancePackages == null))
-                {
-                    _LancePackages = base.CreateObjectSet<LancePackage>("LancePackages");
-                }
-                return _LancePackages;
-            }
-        }
-        private ObjectSet<LancePackage> _LancePackages;
 
         #endregion
         #region AddTo Methods
@@ -292,11 +291,27 @@ namespace MicroShopping.Domain
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the BoughtPackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBoughtPackages(BoughtPackage boughtPackage)
+        {
+            base.AddObject("BoughtPackages", boughtPackage);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Genders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToGenders(Gender gender)
         {
             base.AddObject("Genders", gender);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LancePackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLancePackages(LancePackage lancePackage)
+        {
+            base.AddObject("LancePackages", lancePackage);
         }
     
         /// <summary>
@@ -353,22 +368,6 @@ namespace MicroShopping.Domain
         public void AddToUserRoles(UserRole userRole)
         {
             base.AddObject("UserRoles", userRole);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the BoughtPackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToBoughtPackages(BoughtPackage boughtPackage)
-        {
-            base.AddObject("BoughtPackages", boughtPackage);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the LancePackages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToLancePackages(LancePackage lancePackage)
-        {
-            base.AddObject("LancePackages", lancePackage);
         }
 
         #endregion
@@ -453,30 +452,6 @@ namespace MicroShopping.Domain
         private Nullable<global::System.Int32> _ProductId;
         partial void OnProductIdChanging(Nullable<global::System.Int32> value);
         partial void OnProductIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> AuctionCategoryId
-        {
-            get
-            {
-                return _AuctionCategoryId;
-            }
-            set
-            {
-                OnAuctionCategoryIdChanging(value);
-                ReportPropertyChanging("AuctionCategoryId");
-                _AuctionCategoryId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AuctionCategoryId");
-                OnAuctionCategoryIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _AuctionCategoryId;
-        partial void OnAuctionCategoryIdChanging(Nullable<global::System.Int32> value);
-        partial void OnAuctionCategoryIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -597,54 +572,6 @@ namespace MicroShopping.Domain
         private Nullable<global::System.DateTime> _LastBidTime;
         partial void OnLastBidTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnLastBidTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> AvailableForBuyNow
-        {
-            get
-            {
-                return _AvailableForBuyNow;
-            }
-            set
-            {
-                OnAvailableForBuyNowChanging(value);
-                ReportPropertyChanging("AvailableForBuyNow");
-                _AvailableForBuyNow = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AvailableForBuyNow");
-                OnAvailableForBuyNowChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _AvailableForBuyNow;
-        partial void OnAvailableForBuyNowChanging(Nullable<global::System.Boolean> value);
-        partial void OnAvailableForBuyNowChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> BuyNowCost
-        {
-            get
-            {
-                return _BuyNowCost;
-            }
-            set
-            {
-                OnBuyNowCostChanging(value);
-                ReportPropertyChanging("BuyNowCost");
-                _BuyNowCost = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("BuyNowCost");
-                OnBuyNowCostChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _BuyNowCost;
-        partial void OnBuyNowCostChanging(Nullable<global::System.Decimal> value);
-        partial void OnBuyNowCostChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -800,54 +727,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Auction__25869641", "AuctionCategory")]
-        public AuctionCategory AuctionCategory
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AuctionCategory>("MicroshoppingModel.FK__Auction__Auction__25869641", "AuctionCategory").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AuctionCategory>("MicroshoppingModel.FK__Auction__Auction__25869641", "AuctionCategory").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<AuctionCategory> AuctionCategoryReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AuctionCategory>("MicroshoppingModel.FK__Auction__Auction__25869641", "AuctionCategory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AuctionCategory>("MicroshoppingModel.FK__Auction__Auction__25869641", "AuctionCategory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Product__24927208", "Product")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Product__0B91BA14", "Product")]
         public Product Product
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__24927208", "Product").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Product").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__24927208", "Product").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Product").Value = value;
             }
         }
         /// <summary>
@@ -859,13 +748,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__24927208", "Product");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__24927208", "Product", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Product", value);
                 }
             }
         }
@@ -876,18 +765,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__2B3F6F97", "UserAuctionLance")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__114A936A", "UserAuctionLance")]
         public EntityCollection<UserAuctionLance> UserAuctionLances
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "UserAuctionLance");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "UserAuctionLance");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "UserAuctionLance", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "UserAuctionLance", value);
                 }
             }
         }
@@ -972,31 +861,6 @@ namespace MicroShopping.Domain
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Auction__25869641", "Auction")]
-        public EntityCollection<Auction> Auctions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Auction__25869641", "Auction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Auction__25869641", "Auction", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -1160,16 +1024,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "LancePackage")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__1AD3FDA4", "LancePackage")]
         public LancePackage LancePackage
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "LancePackage").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "LancePackage").Value = value;
             }
         }
         /// <summary>
@@ -1181,13 +1045,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "LancePackage");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "LancePackage", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LancePackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "LancePackage", value);
                 }
             }
         }
@@ -1198,16 +1062,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__19DFD96B", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "User").Value = value;
             }
         }
         /// <summary>
@@ -1219,13 +1083,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "User", value);
                 }
             }
         }
@@ -1318,18 +1182,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__GenderId__09DE7BCC", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__GenderId__70DDC3D8", "User")]
         public EntityCollection<User> Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "User", value);
                 }
             }
         }
@@ -1476,18 +1340,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__Lance__1AD3FDA4", "BoughtPackage")]
         public EntityCollection<BoughtPackage> BoughtPackages
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "BoughtPackage");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__34C8D9D1", "BoughtPackage", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__Lance__1AD3FDA4", "BoughtPackage", value);
                 }
             }
         }
@@ -1700,18 +1564,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Product__24927208", "Auction")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Auction__Product__0B91BA14", "Auction")]
         public EntityCollection<Auction> Auctions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Product__24927208", "Auction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Auction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Product__24927208", "Auction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Auction>("MicroshoppingModel.FK__Auction__Product__0B91BA14", "Auction", value);
                 }
             }
         }
@@ -1722,16 +1586,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__164452B1", "ProductBrand")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__7D439ABD", "ProductBrand")]
         public ProductBrand ProductBrand
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__164452B1", "ProductBrand").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__7D439ABD", "ProductBrand").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__164452B1", "ProductBrand").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__7D439ABD", "ProductBrand").Value = value;
             }
         }
         /// <summary>
@@ -1743,13 +1607,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__164452B1", "ProductBrand");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__7D439ABD", "ProductBrand");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__164452B1", "ProductBrand", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductBrand>("MicroshoppingModel.FK__Product__Product__7D439ABD", "ProductBrand", value);
                 }
             }
         }
@@ -1760,16 +1624,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__173876EA", "ProductCategory")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__7E37BEF6", "ProductCategory")]
         public ProductCategory ProductCategory
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__173876EA", "ProductCategory").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "ProductCategory").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__173876EA", "ProductCategory").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "ProductCategory").Value = value;
             }
         }
         /// <summary>
@@ -1781,13 +1645,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__173876EA", "ProductCategory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "ProductCategory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__173876EA", "ProductCategory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ProductCategory>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "ProductCategory", value);
                 }
             }
         }
@@ -1798,18 +1662,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__ProductPi__Produ__1BFD2C07", "ProductPictures")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__ProductPi__Produ__02FC7413", "ProductPicture")]
         public EntityCollection<ProductPicture> ProductPictures
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ProductPicture>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "ProductPictures");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ProductPicture>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "ProductPicture");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ProductPicture>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "ProductPictures", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ProductPicture>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "ProductPicture", value);
                 }
             }
         }
@@ -1902,18 +1766,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__164452B1", "Product")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__7D439ABD", "Product")]
         public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__164452B1", "Product");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__7D439ABD", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__164452B1", "Product", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__7D439ABD", "Product", value);
                 }
             }
         }
@@ -2006,18 +1870,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__173876EA", "Product")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__Product__Product__7E37BEF6", "Product")]
         public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__173876EA", "Product");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__173876EA", "Product", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("MicroshoppingModel.FK__Product__Product__7E37BEF6", "Product", value);
                 }
             }
         }
@@ -2134,16 +1998,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__ProductPi__Produ__1BFD2C07", "Product")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__ProductPi__Produ__02FC7413", "Product")]
         public Product Product
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "Product").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "Product").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "Product").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "Product").Value = value;
             }
         }
         /// <summary>
@@ -2155,13 +2019,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "Product");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__1BFD2C07", "Product", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("MicroshoppingModel.FK__ProductPi__Produ__02FC7413", "Product", value);
                 }
             }
         }
@@ -2267,6 +2131,30 @@ namespace MicroShopping.Domain
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AvatarUrl
+        {
+            get
+            {
+                return _AvatarUrl;
+            }
+            set
+            {
+                OnAvatarUrlChanging(value);
+                ReportPropertyChanging("AvatarUrl");
+                _AvatarUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AvatarUrl");
+                OnAvatarUrlChanged();
+            }
+        }
+        private global::System.String _AvatarUrl;
+        partial void OnAvatarUrlChanging(global::System.String value);
+        partial void OnAvatarUrlChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2651,30 +2539,6 @@ namespace MicroShopping.Domain
         private global::System.String _EmailVerificationCode;
         partial void OnEmailVerificationCodeChanging(global::System.String value);
         partial void OnEmailVerificationCodeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String AvatarUrl
-        {
-            get
-            {
-                return _AvatarUrl;
-            }
-            set
-            {
-                OnAvatarUrlChanging(value);
-                ReportPropertyChanging("AvatarUrl");
-                _AvatarUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("AvatarUrl");
-                OnAvatarUrlChanged();
-            }
-        }
-        private global::System.String _AvatarUrl;
-        partial void OnAvatarUrlChanging(global::System.String value);
-        partial void OnAvatarUrlChanged();
 
         #endregion
     
@@ -2686,16 +2550,38 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__GenderId__09DE7BCC", "Gender")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__19DFD96B", "BoughtPackage")]
+        public EntityCollection<BoughtPackage> BoughtPackages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "BoughtPackage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__19DFD96B", "BoughtPackage", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__GenderId__70DDC3D8", "Gender")]
         public Gender Gender
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "Gender").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "Gender").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "Gender").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "Gender").Value = value;
             }
         }
         /// <summary>
@@ -2707,13 +2593,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "Gender");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "Gender");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__09DE7BCC", "Gender", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gender>("MicroshoppingModel.FK__User__GenderId__70DDC3D8", "Gender", value);
                 }
             }
         }
@@ -2724,16 +2610,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__UserRoleId__08EA5793", "UserRole")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__UserRoleId__6FE99F9F", "UserRole")]
         public UserRole UserRole
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "UserRole").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "UserRole").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "UserRole").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "UserRole").Value = value;
             }
         }
         /// <summary>
@@ -2745,13 +2631,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "UserRole");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "UserRole");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "UserRole", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserRole>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "UserRole", value);
                 }
             }
         }
@@ -2762,40 +2648,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__UserI__2A4B4B5E", "UserAuctionLance")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__UserI__10566F31", "UserAuctionLance")]
         public EntityCollection<UserAuctionLance> UserAuctionLances
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "UserAuctionLance");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "UserAuctionLance");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "UserAuctionLance", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__BoughtPac__UserI__33D4B598", "BoughtPackage")]
-        public EntityCollection<BoughtPackage> BoughtPackages
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "BoughtPackage");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BoughtPackage>("MicroshoppingModel.FK__BoughtPac__UserI__33D4B598", "BoughtPackage", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserAuctionLance>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "UserAuctionLance", value);
                 }
             }
         }
@@ -2984,16 +2848,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__2B3F6F97", "Auction")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__Aucti__114A936A", "Auction")]
         public Auction Auction
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "Auction").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "Auction").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "Auction").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "Auction").Value = value;
             }
         }
         /// <summary>
@@ -3005,13 +2869,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "Auction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "Auction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__2B3F6F97", "Auction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Auction>("MicroshoppingModel.FK__UserAucti__Aucti__114A936A", "Auction", value);
                 }
             }
         }
@@ -3022,16 +2886,16 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__UserI__2A4B4B5E", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__UserAucti__UserI__10566F31", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "User").Value = value;
             }
         }
         /// <summary>
@@ -3043,13 +2907,13 @@ namespace MicroShopping.Domain
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__2A4B4B5E", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("MicroshoppingModel.FK__UserAucti__UserI__10566F31", "User", value);
                 }
             }
         }
@@ -3142,18 +3006,18 @@ namespace MicroShopping.Domain
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__UserRoleId__08EA5793", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("MicroshoppingModel", "FK__User__UserRoleId__6FE99F9F", "User")]
         public EntityCollection<User> Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("MicroshoppingModel.FK__User__UserRoleId__08EA5793", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("MicroshoppingModel.FK__User__UserRoleId__6FE99F9F", "User", value);
                 }
             }
         }

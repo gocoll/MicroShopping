@@ -1,0 +1,62 @@
+﻿@model MicroShopping.WebUI.Models.AuctionModel
+
+@{
+    ViewBag.Title = "Creando Remate | MicroShopping";
+}
+
+@using (Html.BeginForm("Create", "Auction", FormMethod.Post, new { @class = "register-form" }))
+{
+    <legend>Creando Remate</legend>
+    
+    @Html.ValidationSummary();
+                             
+    <div class="control-group">
+        @Html.LabelFor(model => model.Products)
+        <div class="controls">
+            @Html.DropDownListFor(model => model.ProductId, Model.Products)
+        </div>
+    </div>
+                             
+    <div class="control-group">
+        @Html.LabelFor(m => m.SerialNumber)
+        <div class="controls">
+            @Html.EditorFor(m => m.SerialNumber)
+            @Html.ValidationMessageFor(m => m.SerialNumber)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.IsActive)
+        <div class="controls">
+            @Html.EditorFor(m => m.IsActive)
+            @Html.ValidationMessageFor(m => m.IsActive)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.StartTime)
+        <div class="controls">
+            @Html.EditorFor(m => m.StartTime)
+            @Html.ValidationMessageFor(m => m.StartTime)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.LanceCost)
+        <div class="controls">
+            @Html.EditorFor(m => m.LanceCost)
+            @Html.ValidationMessageFor(m => m.LanceCost)
+        </div>
+    </div>
+    
+    <div class="control-group">
+        @Html.LabelFor(m => m.RegularCost)
+        <div class="controls">
+            @Html.EditorFor(m => m.RegularCost)
+            @Html.ValidationMessageFor(m => m.RegularCost)
+        </div>
+    </div>
+    
+    <input type="submit" class="btn btn-success" value="Crear Nuevo Remate" />
+
+}

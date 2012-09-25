@@ -46,12 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB Creation Script.sql" />
+    <Compile Include="Abstract\IAuctionRepository.cs" />
     <Compile Include="Abstract\IGenderRepository.cs" />
     <Compile Include="Abstract\IPackageRepository.cs" />
     <Compile Include="Abstract\IProductBrandRepository.cs" />
     <Compile Include="Abstract\IProductCategoryRepository.cs" />
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
+    <Compile Include="Concrete\EfAuctionRepository.cs" />
     <Compile Include="Concrete\EfGenderRepository.cs" />
     <Compile Include="Concrete\EfPackageRepository.cs" />
     <Compile Include="Concrete\EfProductBrandRepository.cs" />

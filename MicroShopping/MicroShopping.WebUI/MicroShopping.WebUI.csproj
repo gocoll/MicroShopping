@@ -187,6 +187,7 @@
     </Compile>
     <Compile Include="Helpers\SecurityHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\BoughtPackageModel.cs" />
     <Compile Include="Models\ChangeAvatarModel.cs" />
     <Compile Include="Models\LancePackageModel.cs" />
@@ -500,6 +501,8 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Photos.cshtml" />
     <Content Include="Views\Product\AddPhoto.cshtml" />
+    <Content Include="Views\Admin\Auctions.cshtml" />
+    <Content Include="Views\Auction\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\assets\javascripts\microshopping.js" />

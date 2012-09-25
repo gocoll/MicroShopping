@@ -17,13 +17,15 @@ namespace MicroShopping.WebUI.Controllers
         private readonly IProductBrandRepository productBrandRepository;
         private readonly IProductCategoryRepository productCategoryRepository;
         private readonly IProductRepository productRepository;
+        private readonly IAuctionRepository auctionRepository;
 
-        public AdminController(IPackageRepository packageRepository, IProductBrandRepository _productBrandRepository, IProductCategoryRepository _productCategoryRepository, IProductRepository _productRepository)
+        public AdminController(IPackageRepository packageRepository, IProductBrandRepository _productBrandRepository, IProductCategoryRepository _productCategoryRepository, IProductRepository _productRepository, IAuctionRepository _auctionRepository)
         {
             _packageRepository = packageRepository;
             productBrandRepository = _productBrandRepository;
             productCategoryRepository = _productCategoryRepository;
             productRepository = _productRepository;
+            auctionRepository = _auctionRepository;
         }
 
         [Role(Roles = RoleDefinitions.Staff)]
@@ -90,17 +92,38 @@ namespace MicroShopping.WebUI.Controllers
             foreach (var product in products)
             {
                 model.Add(new ProductModel()
-                              {
-                                  BrandName = product.ProductBrand.Name,
-                                  CategoryName = product.ProductCategory.Name,
-                                  Description = product.Description,
-                                  Name = product.Name,
-                                  ProductId = product.ProductId,
-                                  SuggestedPrice = (decimal)product.SuggestedPrice,
-                                  WeightInMilligrams = (decimal)product.WeightInMilligrams
-                              });
+                {
+                    BrandName = product.ProductBrand.Name,
+                    CategoryName = product.ProductCategory.Name,
+                    Description = product.Description,
+                    Name = product.Name,
+                    ProductId = product.ProductId,
+                    SuggestedPrice = (decimal)product.SuggestedPrice,
+                    WeightInMilligrams = (decimal)product.WeightInMilligrams
+                });
             }
-            
+
+            return View(model);
+        }
+
+        [Role(Roles = RoleDefinitions.FinanceAdministratorAndAbove)]
+        public ActionResult Auctions()
+        {
+            var auctions = auctionRepository.FindAllAuctions();
+            var model = new List<AuctionModel>();
+
+            foreach (var a in auctions)
+            {
+                model.Add(new AuctionModel()
+                {
+                    AuctionId = a.AuctionId,
+                    ProductName = a.Product.Name,
+                    LanceCost = (decimal)a.LanceCost,
+                    StartTime = (DateTime)a.StartTime,
+                    IsFinished = a.EndTime != null
+                });
+            }
+
             return View(model);
         }
     }

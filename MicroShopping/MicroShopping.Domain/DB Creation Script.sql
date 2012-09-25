@@ -93,24 +93,15 @@ create table ProductPictures
 	ImageUrl nvarchar(1024)
 )
  
-create table AuctionCategory
-(
-	AuctionCategoryId int primary key identity(1,1),
-	Name nvarchar(64)
-)
- 
 create table Auction
 (
 	AuctionId int primary key identity(1,1),
 	ProductId int foreign key references Product(ProductId),
-	AuctionCategoryId int foreign key references AuctionCategory(AuctionCategoryId),
 	SerialNumber nvarchar(1024),
 	IsActive bit,
 	StartTime datetime,
 	EndTime datetime,
 	LastBidTime datetime,
-	AvailableForBuyNow bit,
-	BuyNowCost decimal(15,2),
 	LanceCost decimal(15,2),
 	ClosingLanceCount int,
 	WonByUser int,
@@ -155,22 +146,6 @@ values ('Female');
 
 insert into Gender (Name)
 values ('Unkown');
-
-/* Insert some default Auction Category types. */
-insert into AuctionCategory (Name)
-values ('New Users');
-
-insert into AuctionCategory (Name)
-values ('Bronze');
-
-insert into AuctionCategory (Name)
-values ('Silver');
-
-insert into AuctionCategory (Name)
-values ('Gold');
-
-insert into AuctionCategory (Name)
-values ('Platinum');
 
 /* Insert some default User Roles. */
 
